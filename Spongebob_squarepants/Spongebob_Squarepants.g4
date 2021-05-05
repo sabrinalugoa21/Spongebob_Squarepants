@@ -11,14 +11,14 @@ grammar Spongebob_Squarepants;
 }
 	
  program				:programHeader block '.';
- programHeader 	    	:BikiniBottom 'aye aye captain';
+ programHeader 	    	:BIKINIBOTTOM 'aye aye captain';
  block					: declarations compoundStatement;
  
- c
- declarations 			: (constantsPart 'aye aye captain') ? (typesPart 'aye aye captain') ?
+ 
+ declarations 			: (constantsPart 'aye aye captain')  ?
  					      (variablesPart 'aye aye captain' ) ?;
  					  
- constantsPart 		    : ImAGoodNoodle constantDefinitionList;
+ constantsPart 		    : IMAGOODNOODLE constantDefinitionList;
  constantDefinitionList : constantDefinition ('aye aye' constantDefinition )*;
  constantDefinition		: constantIdentifier 'is' constant;
  
@@ -56,34 +56,33 @@ grammar Spongebob_Squarepants;
  		   | assignmentStatement 
  		   | ifStatement 
  		   | whileStatement 
- 		   | forstatement 
+ 		 //  | forstatement 
  		   | writeStatement 
  		   | writelnStatement 
- 		   | readStatement
- 		   | readlnStatement
- 		   | procedureCallStatement
+ 		  // | readStatement
+ 		  // | readlnStatement
  		   | emptyStatement
  		   ;
 
-compoundStatement  	: BEGIN statementlist END;
+compoundStatement  	: ANETERNITYLATER statementlist GOODBYEFRIEND;
 
 emptyStatement 		: ;
 
-statementList		:statement ('aye aye captain'  statement)*;
+statementlist		:statement ('aye aye captain'  statement)*;
 assignmentStatement : lhs 'is' rhs;
 
 lhs 				 locals[TypeSpec *type = nullptr]
 	: variable;
 rhs	: krabby_patty_meal;
 
-ifStatement 		: IF  LPAREN krabby_patty_meal RPAREN  STARFISH  trueStatement STARFISH (ELSE falseStatement)?;
+ifStatement 		: FISFORFRIENDS  TBUN krabby_patty_meal BBUN STARFISH  truestatement STARFISH (FISFORFIRE falsestatement)?;
 truestatement		: statement;
 falsestatement 		: statement;
 
-whileStatement		: WHILE LPARENT krabby_patty_meal RPAREN STARFISH statement STARFISH;
+whileStatement		: THEFORMULOLI  TBUN krabby_patty_meal BBUN STARFISH statement STARFISH;
 
-writeStatement 		: WRITE LPAREN writeArguments RPAREN;
-writelnStatement 	: WRITELN LPAREN writeArguments RPAREN;
+writeStatement 		: ORDERUP TBUN writeArguments BBUN;
+writelnStatement 	: YOUFORGOTTHEPICKLES TBUN writeArguments BBUN;
 
 writeArguments		: writeArgument ( ',' writeArgument)*;
 writeArgument 		: krabby_patty_meal;
@@ -97,7 +96,7 @@ readArguments		: variable (',' variable)*;
 */
 
 krabby_patty_meal	locals [Typespec * type = nullptr]
-    : term (relOp term)?;
+    : term (addOp term)?;
  
  term				locals [Typespec *type = nullptr]
  	: krabby_patty (mulOp krabby_patty)*;
@@ -107,8 +106,8 @@ krabby_patty_meal	locals [Typespec * type = nullptr]
 	| number 
 	| characterConstant 
 	| stringConstant
-	| NOT krabby_patty 
-	| LPAREN krabby_patty_meal RPAREN
+	| DOODLEBOB krabby_patty 
+	| TBUN krabby_patty_meal BBUN
 	;
 	
 variable			locals [Typespect *type = nullptr]
@@ -116,66 +115,79 @@ variable			locals [Typespect *type = nullptr]
 	
 number 		    : unsignedNumber;
 unsignedNumber  : integerConstant | realConstant;
-integerConstant : INTEGER;
-realConstant 	: REAL;
+integerConstant : BUBBLEBUDDY;						//INTEGER
+realConstant 	: SPONGEBOB;						//REAL
 
-characterConstant : CHARACTER;
-stringConstant	  : STRING;
+characterConstant : PLANKTON;					//CHARACTER
+stringConstant	  : SQUIDWARD;					//STRING
 
 addOp : 'Money!' | 'Me Money!';
 mulOp : 'I went to college!' | 'I will destroy all of you!' ;
 
- fragment A : ('a' | 'A') ;
-fragment B : ('b' | 'B') ;
-fragment C : ('c' | 'C') ;
-fragment D : ('d' | 'D') ;
-fragment E : ('e' | 'E') ;
-fragment F : ('f' | 'F') ;
-fragment G : ('g' | 'G') ;
-fragment H : ('h' | 'H') ;
-fragment I : ('i' | 'I') ;
-fragment J : ('j' | 'J') ;
-fragment K : ('k' | 'K') ;
-fragment L : ('l' | 'L') ;
-fragment M : ('m' | 'M') ;
-fragment N : ('n' | 'N') ;
-fragment O : ('o' | 'O') ;
-fragment P : ('p' | 'P') ;
-fragment Q : ('q' | 'Q') ;
-fragment R : ('r' | 'R') ;
-fragment S : ('s' | 'S') ;
-fragment T : ('t' | 'T') ;
-fragment U : ('u' | 'U') ;
-fragment V : ('v' | 'V') ;
-fragment W : ('w' | 'W') ;
-fragment X : ('x' | 'X') ;
-fragment Y : ('y' | 'Y') ;
-fragment Z : ('z' | 'Z') ;
+fragment A :('a' | 'A');
+fragment B :('b' | 'B');
+fragment C :('c' | 'C');
+fragment D :('d' | 'D');
+fragment E :('e' | 'E');
+fragment F :('f' | 'F');
+fragment G :('g' | 'G');
+fragment H :('h' | 'H');
+fragment I :('i' | 'I');
+fragment J :('j' | 'J');
+fragment K :('k' | 'K');
+fragment L :('l' | 'L');
+fragment M :('m' | 'M');
+fragment N :('n' | 'N');
+fragment O :('o' | 'O');
+fragment P :('p' | 'P');
+fragment Q :('q' | 'Q');
+fragment R :('r' | 'R');
+fragment S :('s' | 'S');
+fragment T :('t' | 'T');
+fragment U :('u' | 'U');
+fragment V :('v' | 'V');
+fragment W :('w' | 'W');
+fragment X :('x' | 'X');
+fragment Y :('y' | 'Y');
+fragment Z :('z' | 'Z');
 
-PROGRAM   : B I K I N I B O T T O M;
-CONST     : I A M A G O O D N O O D L E ;
-BEGIN     : A N E T E R N I T Y L A T E R;
-END       : G O O D B Y E , F R I E N D !;
-IF        : F I S F O R F R I E N D S;
-ELSE      : F I S F O R F I R E;
-DO		  : R A V I O L I , R A V I O L I , G I V E M E;
-WHILE     : T H E F O R M U O L I ;
-FOR       : I M R E A D Y P R O M O T I O N;
-WRITE     : O R D E R U P;
-WRITELN   : O R D E R U P , P L E A S E!;
-//READ      : R E A D ;
-//READLN    : R E A D L N ;
+BIKINIBOTTOM  		 : B I K I N I B O T T O M;						//PROGRAM
+IMAGOODNOODLE    	 : I M A G O O D N O O D L E ;					//CONST
+ANETERNITYLATER    	 : A N E T E R N I T Y L A T E R;				//BEGIN
+GOODBYEFRIEND      	 : G O O D B Y E  F R I E N D ;					//END
+FISFORFRIENDS        : F I S F O R F R I E N D S;					//IF
+FISFORFIRE      	 : F I S F O R F I R E;							//ELSE
+RAVOLIRAVIOLIGIVEME	 : R A V I O L I  R A V I O L I  G I V E M E;	//DO
+THEFORMULOLI     	 : T H E F O R M U O L I ;						//WHILE
+IMREADYPROMOTION     : I M R E A D Y P R O M O T I O N;				//FOR
+ORDERUP    			 : O R D E R U P;								//WRITE
+YOUFORGOTTHEPICKLES  : Y O U F O R G O T T H E P I C K L E S;		//WRTIELN
+DOODLEBOB			 : D O O D L E B O B;
 
+TBUN	   : '(';
+BBUN 	   : ')';
+STARFISH   : '*';
 IDENTIFIER : [a-zA-Z][a-zA-Z0-9]* ;
-INTEGER    : [0-9]+ ;
+BUBBLEBUDDY    : [0-9]+ ;											//INTEGER
 
-REAL       : INTEGER '.' INTEGER
-           | INTEGER ('e' | 'E') ('+' | '-')? INTEGER
-           | INTEGER '.' INTEGER ('e' | 'E') ('+' | '-')? INTEGER
+SPONGEBOB  : BUBBLEBUDDY'.' BUBBLEBUDDY								//REAL
+           | BUBBLEBUDDY ('e' | 'E') ('+' | '-')? BUBBLEBUDDY
+           | BUBBLEBUDDY '.' BUBBLEBUDDY ('e' | 'E') ('+' | '-')? BUBBLEBUDDY
            ;
+QUOTE     : '\'' ;
+PLANKTON  : QUOTE PLANKTON_CHAR QUOTE ;
+SQUIDWARD : QUOTE SQUIDWARD_CHAR* QUOTE ;
 
-NEWLINE : '\r'? '\n' -> skip  ;
-WS      : [ \t]+ -> skip ; 
+fragment PLANKTON_CHAR : ~('\'')   // any non-quote character
+                        ;
+
+fragment SQUIDWARD_CHAR : QUOTE QUOTE  // two consecutive quotes
+                     | ~('\'')      // any non-quote character
+                     ;
+ 
+
+MAGICCONCH	   : '\r'? '\n' -> skip  ;						//NEWLINE		
+IMAGINATION    : [ \t]+ -> skip ; 							//WHITESPACE
  
  
  		
