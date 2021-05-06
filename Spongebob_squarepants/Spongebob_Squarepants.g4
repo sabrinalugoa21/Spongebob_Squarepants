@@ -10,16 +10,16 @@ grammar Spongebob_Squarepants;
     using namespace intermediate::type;
 }
 	
- program				:programHeader block '.';
+ program				:programHeader block '!';
  programHeader 	    	:BIKINIBOTTOM 'aye aye captain';
- block					: declarations compoundStatement;
+ block					: declarations compoundStatement ;
  
  
  declarations 			: (constantsPart 'aye aye captain')  ?
  					      (variablesPart 'aye aye captain' ) ?;
  					  
  constantsPart 		    : IMAGOODNOODLE constantDefinitionList;
- constantDefinitionList : constantDefinition ('aye aye' constantDefinition )*;
+ constantDefinitionList : constantDefinition ('aye aye captain' constantDefinition )*;
  constantDefinition		: constantIdentifier 'is' constant;
  
 
@@ -36,7 +36,7 @@ grammar Spongebob_Squarepants;
  
  variablesPart 			 : variableDeclarationList;
  variableDeclarationList : variableDeclarations ('aye aye captain' variableDeclarations)*;
- variableDeclarations 	 : typeSpecification 'is' variableIdentifierList;
+ variableDeclarations 	 : typeSpecification 'is' variableIdentifierList;					//declarator typeSpecification
  variableIdentifierList   : variableIdentifier (',' variableIdentifier)*;
  
  variableIdentifier   locals [Typespec *type = nullptr, SyntabEntry *entry = nullptr]
@@ -73,19 +73,19 @@ assignmentStatement : lhs 'is' rhs;
 
 lhs 				 locals[TypeSpec *type = nullptr]
 	: variable;
-rhs	: krabby_patty_meal;
+rhs	: expression;
 
-ifStatement 		: FISFORFRIENDS  TBUN krabby_patty_meal BBUN STARFISH  truestatement STARFISH (FISFORFIRE falsestatement)?;
+ifStatement 		: FISFORFRIENDS '('expression ')' '*' truestatement '*' (FISFORFIRE falsestatement)?;
 truestatement		: statement;
 falsestatement 		: statement;
 
-whileStatement		: THEFORMULOLI  TBUN krabby_patty_meal BBUN STARFISH statement STARFISH;
+whileStatement		: THEFORMULOLI '(' expression ')' '*' statement '*';
 
-writeStatement 		: ORDERUP TBUN writeArguments BBUN;
-writelnStatement 	: YOUFORGOTTHEPICKLES TBUN writeArguments BBUN;
+writeStatement 		: ORDERUP '(' writeArguments ')' 'aye aye captain';
+writelnStatement 	: YOUFORGOTTHEPICKLES '(' writeArguments ')' 'aye aye captain' MAGICCONCH;
 
 writeArguments		: writeArgument ( ',' writeArgument)*;
-writeArgument 		: krabby_patty_meal;
+writeArgument 		: expression;
 
 /* 
 readStatement 		: READ LPAREN readArguments RPAREN;
@@ -95,13 +95,16 @@ readArguments		: variable (',' variable)*;
 
 */
 
-krabby_patty_meal	locals [Typespec * type = nullptr]
-    : term (addOp term)?;
+expression			locals [Typespec *type = nullptr]
+	:krabby_patty_meal (relOp krabby_patty_meal)?;
+
+krabby_patty_meal	locals [Typespec * type = nullptr]						//EXPRESSION
+    : term (addOp term)*;
  
  term				locals [Typespec *type = nullptr]
  	: krabby_patty (mulOp krabby_patty)*;
  	
- krabby_patty 		locals [Typespec *type = nullptr]
+ krabby_patty 		locals [Typespec *type = nullptr]						//FACTOR
 	: variable 
 	| number 
 	| characterConstant 
@@ -121,8 +124,9 @@ realConstant 	: SPONGEBOB;						//REAL
 characterConstant : PLANKTON;					//CHARACTER
 stringConstant	  : SQUIDWARD;					//STRING
 
-addOp : 'Money!' | 'Me Money!';
-mulOp : 'I went to college!' | 'I will destroy all of you!' ;
+relOp : '==' | '!='| '<' | '<=' | '>' | '>=';
+addOp : 'Money!' | 'Me Money!'| OR;
+mulOp : 'I went to college!' | 'I will destroy all of you!' | AND;
 
 fragment A :('a' | 'A');
 fragment B :('b' | 'B');
@@ -175,8 +179,8 @@ SPONGEBOB  : BUBBLEBUDDY'.' BUBBLEBUDDY								//REAL
            | BUBBLEBUDDY '.' BUBBLEBUDDY ('e' | 'E') ('+' | '-')? BUBBLEBUDDY
            ;
 QUOTE     : '\'' ;
-PLANKTON  : QUOTE PLANKTON_CHAR QUOTE ;
-SQUIDWARD : QUOTE SQUIDWARD_CHAR* QUOTE ;
+PLANKTON  : QUOTE PLANKTON_CHAR QUOTE ;								//CHAR
+SQUIDWARD : QUOTE SQUIDWARD_CHAR* QUOTE ;							//STRING
 
 fragment PLANKTON_CHAR : ~('\'')   // any non-quote character
                         ;
