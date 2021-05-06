@@ -75,14 +75,15 @@ lhs 				 locals[TypeSpec *type = nullptr]
 	: variable;
 rhs	: expression;
 
-ifStatement 		: FISFORFRIENDS '('expression ')' '*' truestatement '*' (FISFORFIRE falsestatement)?;
+ifStatement 		: FISFORFRIENDS TBUN expression BBUN STARFISH truestatement STARFISH (FISFORFIRE falsestatement)?;
 truestatement		: statement;
 falsestatement 		: statement;
 
-whileStatement		: THEFORMULOLI '(' expression ')' '*' statement '*';
+doWhileStatement	: RAVIOLIRAVIOLIGIVEME STARFISH statement STARFISH THEFORMULOLI '('expression')';
+whileStatement		: THEFORMULOLI TBUN expression BBUN STARFISH statement STARFISH;
 
-writeStatement 		: ORDERUP '(' writeArguments ')' 'aye aye captain';
-writelnStatement 	: YOUFORGOTTHEPICKLES '(' writeArguments ')' 'aye aye captain' MAGICCONCH;
+writeStatement 		: ORDERUP TBUN writeArguments BBUN 'aye aye captain';
+writelnStatement 	: YOUFORGOTTHEPICKLES TBUN writeArguments BBUN 'aye aye captain' MAGICCONCH;
 
 writeArguments		: writeArgument ( ',' writeArgument)*;
 writeArgument 		: expression;
@@ -161,12 +162,14 @@ ANETERNITYLATER    	 : A N E T E R N I T Y L A T E R;				//BEGIN
 GOODBYEFRIEND      	 : G O O D B Y E  F R I E N D ;					//END
 FISFORFRIENDS        : F I S F O R F R I E N D S;					//IF
 FISFORFIRE      	 : F I S F O R F I R E;							//ELSE
-RAVOLIRAVIOLIGIVEME	 : R A V I O L I  R A V I O L I  G I V E M E;	//DO
+RAVIOLIRAVIOLIGIVEME : R A V I O L I R A V I O L I G I V E M E;		//DO
 THEFORMULOLI     	 : T H E F O R M U O L I ;						//WHILE
 IMREADYPROMOTION     : I M R E A D Y P R O M O T I O N;				//FOR
 ORDERUP    			 : O R D E R U P;								//WRITE
 YOUFORGOTTHEPICKLES  : Y O U F O R G O T T H E P I C K L E S;		//WRTIELN
 DOODLEBOB			 : D O O D L E B O B;
+OR: O R;
+AND: A N D;
 
 TBUN	   : '(';
 BBUN 	   : ')';
