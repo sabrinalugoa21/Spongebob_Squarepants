@@ -15,7 +15,7 @@ grammar Spongebob_Squarepants;
  block					: declarations compoundStatement ;
  
  
- declarations 			: (constantsPart 'aye aye captain')  ?
+ declarations 			: (constantsPart 'aye aye captain')  ? 
  					      (variablesPart 'aye aye captain' ) ?;
  					  
  constantsPart 		    : IMAGOODNOODLE constantDefinitionList;
@@ -75,11 +75,11 @@ lhs 				 locals[TypeSpec *type = nullptr]
 	: variable;
 rhs	: expression;
 
-ifStatement 		: FISFORFRIENDS TBUN expression BBUN STARFISH truestatement STARFISH (FISFORFIRE falsestatement)?;
+ifStatement 		: FISFORFRIENDS TBUN expression BBUN  truestatement (FISFORFIRE falsestatement)?;
 truestatement		: statement;
 falsestatement 		: statement;
 
-doWhileStatement	: RAVIOLIRAVIOLIGIVEME STARFISH statement STARFISH THEFORMULOLI '('expression')';
+doWhileStatement	: RAVIOLIRAVIOLIGIVEME statement THEFORMULOLI '('expression')';
 whileStatement		: THEFORMULOLI TBUN expression BBUN STARFISH statement STARFISH;
 
 writeStatement 		: ORDERUP TBUN writeArguments BBUN 'aye aye captain';
@@ -103,15 +103,15 @@ krabby_patty_meal	locals [Typespec * type = nullptr]						//EXPRESSION
     : term (addOp term)*;
  
  term				locals [Typespec *type = nullptr]
- 	: krabby_patty (mulOp krabby_patty)*;
+ 	: krabby_patty  (mulOp krabby_patty)*;
  	
- krabby_patty 		locals [Typespec *type = nullptr]						//FACTOR
+ krabby_patty 	locals [Typespec *type = nullptr]						//FACTOR
 	: variable 
 	| number 
 	| characterConstant 
 	| stringConstant
 	| DOODLEBOB krabby_patty 
-	| TBUN krabby_patty_meal BBUN
+	| TBUN expression BBUN
 	;
 	
 variable			locals [Typespect *type = nullptr]
@@ -182,14 +182,14 @@ SPONGEBOB  : BUBBLEBUDDY'.' BUBBLEBUDDY								//REAL
            | BUBBLEBUDDY '.' BUBBLEBUDDY ('e' | 'E') ('+' | '-')? BUBBLEBUDDY
            ;
 QUOTE     : '\'' ;
-PLANKTON  : QUOTE PLANKTON_CHAR QUOTE ;								//CHAR
-SQUIDWARD : QUOTE SQUIDWARD_CHAR* QUOTE ;							//STRING
+PLANKTON  : '\'' PLANKTON_CHAR '\'';								//CHAR
+SQUIDWARD : '"' SQUIDWARD_CHAR* '"' ;							//STRING
 
-fragment PLANKTON_CHAR : ~('\'')   // any non-quote character
+fragment PLANKTON_CHAR : ~('\'')   
                         ;
 
-fragment SQUIDWARD_CHAR : QUOTE QUOTE  // two consecutive quotes
-                     | ~('\'')      // any non-quote character
+fragment SQUIDWARD_CHAR : QUOTE QUOTE  
+                     | ~('"')      
                      ;
  
 
