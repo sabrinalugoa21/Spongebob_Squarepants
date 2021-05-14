@@ -12,8 +12,8 @@ ANETERNITYLATER
 	
 	
 	RAVIOLIRAVIOLIGIVEME i <= 10                                                       
-	THEFORMUOLI                  
-	    ORDERUP(i) aye aye captain                                
-	    i is (a MONEY 1) aye aye captain 
+	THEFORMUOLI                                                
+	    i is a MONEY 1 aye aye captain 
+	    ORDERUP(i) aye aye captain
 	
 GOODBYEFRIEND!    
