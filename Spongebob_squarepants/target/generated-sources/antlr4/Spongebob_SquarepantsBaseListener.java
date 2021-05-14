@@ -23,18 +23,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstantsPart(@NotNull Spongebob_SquarepantsParser.ConstantsPartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConstantsPart(@NotNull Spongebob_SquarepantsParser.ConstantsPartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVariableIdentifier(@NotNull Spongebob_SquarepantsParser.VariableIdentifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -42,18 +30,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVariableIdentifier(@NotNull Spongebob_SquarepantsParser.VariableIdentifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterWriteStatement(@NotNull Spongebob_SquarepantsParser.WriteStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitWriteStatement(@NotNull Spongebob_SquarepantsParser.WriteStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -71,42 +47,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstantDefinitionList(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConstantDefinitionList(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStatementlist(@NotNull Spongebob_SquarepantsParser.StatementlistContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStatementlist(@NotNull Spongebob_SquarepantsParser.StatementlistContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAssignmentStatement(@NotNull Spongebob_SquarepantsParser.AssignmentStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAssignmentStatement(@NotNull Spongebob_SquarepantsParser.AssignmentStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCompoundStatement(@NotNull Spongebob_SquarepantsParser.CompoundStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -114,6 +54,18 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCompoundStatement(@NotNull Spongebob_SquarepantsParser.CompoundStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterModifier(@NotNull Spongebob_SquarepantsParser.ModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitModifier(@NotNull Spongebob_SquarepantsParser.ModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -143,18 +95,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariablesPart(@NotNull Spongebob_SquarepantsParser.VariablesPartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVariablesPart(@NotNull Spongebob_SquarepantsParser.VariablesPartContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterWriteArgument(@NotNull Spongebob_SquarepantsParser.WriteArgumentContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -162,18 +102,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitWriteArgument(@NotNull Spongebob_SquarepantsParser.WriteArgumentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFalsestatement(@NotNull Spongebob_SquarepantsParser.FalsestatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFalsestatement(@NotNull Spongebob_SquarepantsParser.FalsestatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -203,54 +131,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstantDefinition(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConstantDefinition(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterKrabby_patty_meal(@NotNull Spongebob_SquarepantsParser.Krabby_patty_mealContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitKrabby_patty_meal(@NotNull Spongebob_SquarepantsParser.Krabby_patty_mealContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStringConstant(@NotNull Spongebob_SquarepantsParser.StringConstantContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStringConstant(@NotNull Spongebob_SquarepantsParser.StringConstantContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStatement(@NotNull Spongebob_SquarepantsParser.StatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStatement(@NotNull Spongebob_SquarepantsParser.StatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterBlock(@NotNull Spongebob_SquarepantsParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -263,18 +143,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTerm(@NotNull Spongebob_SquarepantsParser.TermContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTerm(@NotNull Spongebob_SquarepantsParser.TermContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterTypeSpecification(@NotNull Spongebob_SquarepantsParser.TypeSpecificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -282,18 +150,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTypeSpecification(@NotNull Spongebob_SquarepantsParser.TypeSpecificationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterKrabby_patty(@NotNull Spongebob_SquarepantsParser.Krabby_pattyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitKrabby_patty(@NotNull Spongebob_SquarepantsParser.Krabby_pattyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -347,18 +203,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(@NotNull Spongebob_SquarepantsParser.ExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitExpression(@NotNull Spongebob_SquarepantsParser.ExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCharacterConstant(@NotNull Spongebob_SquarepantsParser.CharacterConstantContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -383,18 +227,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAddOp(@NotNull Spongebob_SquarepantsParser.AddOpContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAddOp(@NotNull Spongebob_SquarepantsParser.AddOpContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterConstantIdentifier(@NotNull Spongebob_SquarepantsParser.ConstantIdentifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -402,6 +234,270 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitConstantIdentifier(@NotNull Spongebob_SquarepantsParser.ConstantIdentifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIndex(@NotNull Spongebob_SquarepantsParser.IndexContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIndex(@NotNull Spongebob_SquarepantsParser.IndexContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSimpleExpression(@NotNull Spongebob_SquarepantsParser.SimpleExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSimpleExpression(@NotNull Spongebob_SquarepantsParser.SimpleExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRelOp(@NotNull Spongebob_SquarepantsParser.RelOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRelOp(@NotNull Spongebob_SquarepantsParser.RelOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWriteArguments(@NotNull Spongebob_SquarepantsParser.WriteArgumentsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWriteArguments(@NotNull Spongebob_SquarepantsParser.WriteArgumentsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterField(@NotNull Spongebob_SquarepantsParser.FieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitField(@NotNull Spongebob_SquarepantsParser.FieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTypeIdentifier(@NotNull Spongebob_SquarepantsParser.TypeIdentifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeIdentifier(@NotNull Spongebob_SquarepantsParser.TypeIdentifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIntegerConstant(@NotNull Spongebob_SquarepantsParser.IntegerConstantContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIntegerConstant(@NotNull Spongebob_SquarepantsParser.IntegerConstantContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstantsPart(@NotNull Spongebob_SquarepantsParser.ConstantsPartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstantsPart(@NotNull Spongebob_SquarepantsParser.ConstantsPartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWriteStatement(@NotNull Spongebob_SquarepantsParser.WriteStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWriteStatement(@NotNull Spongebob_SquarepantsParser.WriteStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstantDefinitionList(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstantDefinitionList(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStatementlist(@NotNull Spongebob_SquarepantsParser.StatementlistContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatementlist(@NotNull Spongebob_SquarepantsParser.StatementlistContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAssignmentStatement(@NotNull Spongebob_SquarepantsParser.AssignmentStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAssignmentStatement(@NotNull Spongebob_SquarepantsParser.AssignmentStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIndexList(@NotNull Spongebob_SquarepantsParser.IndexListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIndexList(@NotNull Spongebob_SquarepantsParser.IndexListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariablesPart(@NotNull Spongebob_SquarepantsParser.VariablesPartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariablesPart(@NotNull Spongebob_SquarepantsParser.VariablesPartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFalsestatement(@NotNull Spongebob_SquarepantsParser.FalsestatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFalsestatement(@NotNull Spongebob_SquarepantsParser.FalsestatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstantDefinition(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstantDefinition(@NotNull Spongebob_SquarepantsParser.ConstantDefinitionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStringConstant(@NotNull Spongebob_SquarepantsParser.StringConstantContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStringConstant(@NotNull Spongebob_SquarepantsParser.StringConstantContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStatement(@NotNull Spongebob_SquarepantsParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatement(@NotNull Spongebob_SquarepantsParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTerm(@NotNull Spongebob_SquarepantsParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTerm(@NotNull Spongebob_SquarepantsParser.TermContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFactor(@NotNull Spongebob_SquarepantsParser.FactorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFactor(@NotNull Spongebob_SquarepantsParser.FactorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpression(@NotNull Spongebob_SquarepantsParser.ExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpression(@NotNull Spongebob_SquarepantsParser.ExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAddOp(@NotNull Spongebob_SquarepantsParser.AddOpContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAddOp(@NotNull Spongebob_SquarepantsParser.AddOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -426,18 +522,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIfStatement(@NotNull Spongebob_SquarepantsParser.IfStatementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRelOp(@NotNull Spongebob_SquarepantsParser.RelOpContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRelOp(@NotNull Spongebob_SquarepantsParser.RelOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -479,18 +563,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWriteArguments(@NotNull Spongebob_SquarepantsParser.WriteArgumentsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitWriteArguments(@NotNull Spongebob_SquarepantsParser.WriteArgumentsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterMulOp(@NotNull Spongebob_SquarepantsParser.MulOpContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -527,18 +599,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTypeIdentifier(@NotNull Spongebob_SquarepantsParser.TypeIdentifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTypeIdentifier(@NotNull Spongebob_SquarepantsParser.TypeIdentifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterVariableDeclarationList(@NotNull Spongebob_SquarepantsParser.VariableDeclarationListContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -546,18 +606,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitVariableDeclarationList(@NotNull Spongebob_SquarepantsParser.VariableDeclarationListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIntegerConstant(@NotNull Spongebob_SquarepantsParser.IntegerConstantContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIntegerConstant(@NotNull Spongebob_SquarepantsParser.IntegerConstantContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

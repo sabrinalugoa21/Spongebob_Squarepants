@@ -34,9 +34,9 @@ grammar Spongebob_Squarepants;
  
  sign : '-' | '+';
  
- variablesPart 			 : variableDeclarationList;
+ variablesPart 			 : IMMAGOOFYGOOBER variableDeclarationList;
  variableDeclarationList : variableDeclarations ('aye aye captain' variableDeclarations)*;
- variableDeclarations 	 : typeSpecification 'is' variableIdentifierList;					//declarator typeSpecification
+ variableDeclarations     : variableIdentifierList 'is' typeSpecification ;					//declarator typeSpecification
  variableIdentifierList   : variableIdentifier (',' variableIdentifier)*;
  
  variableIdentifier   locals [Typespec *type = nullptr, SyntabEntry *entry = nullptr]
@@ -79,8 +79,8 @@ ifStatement 		: FISFORFRIENDS TBUN expression BBUN  truestatement (FISFORFIRE fa
 truestatement		: statement;
 falsestatement 		: statement;
 
-doWhileStatement	: RAVIOLIRAVIOLIGIVEME statement THEFORMULOLI '('expression')';
-whileStatement		: THEFORMULOLI TBUN expression BBUN STARFISH statement STARFISH;
+// doWhileStatement	: RAVIOLIRAVIOLIGIVEME statement THEFORMULOLI '('expression')';
+whileStatement		: RAVIOLIRAVIOLIGIVEME expression THEFORMULOLI  statement; 
 
 writeStatement 		: ORDERUP TBUN writeArguments BBUN 'aye aye captain';
 writelnStatement 	: YOUFORGOTTHEPICKLES TBUN writeArguments BBUN 'aye aye captain' MAGICCONCH;
@@ -97,25 +97,32 @@ readArguments		: variable (',' variable)*;
 */
 
 expression			locals [Typespec *type = nullptr]
-	:krabby_patty_meal (relOp krabby_patty_meal)?;
+	:simpleExpression (relOp simpleExpression)?;
 
-krabby_patty_meal	locals [Typespec * type = nullptr]						//EXPRESSION
-    : term (addOp term)*;
+simpleExpression	locals [Typespec * type = nullptr]						//EXPRESSION
+    : sign? term (addOp term)*;
  
  term				locals [Typespec *type = nullptr]
- 	: krabby_patty  (mulOp krabby_patty)*;
+ 	: factor  (mulOp factor)*;
  	
- krabby_patty 	locals [Typespec *type = nullptr]						//FACTOR
+ factor 	locals [Typespec *type = nullptr]						//FACTOR
 	: variable 
 	| number 
 	| characterConstant 
 	| stringConstant
-	| DOODLEBOB krabby_patty 
-	| TBUN expression BBUN
+	| DOODLEBOB factor 
+	| '(' expression ')'
 	;
 	
-variable			locals [Typespect *type = nullptr]
-	: IDENTIFIER;
+variable        locals [ Typespec *type = nullptr, SymtabEntry *entry = nullptr ] 
+    : variableIdentifier modifier* ;
+
+modifier  : '[' indexList ']' | '.' field ;
+indexList : index ( ',' index )* ;
+index     : expression ; 
+
+field           locals [ Typespec *type = nullptr, SymtabEntry *entry = nullptr ]     
+    : IDENTIFIER ;
 	
 number 		    : unsignedNumber;
 unsignedNumber  : integerConstant | realConstant;
@@ -126,7 +133,7 @@ characterConstant : PLANKTON;					//CHARACTER
 stringConstant	  : SQUIDWARD;					//STRING
 
 relOp : '==' | '!='| '<' | '<=' | '>' | '>=';
-addOp : 'Money!' | 'Me Money!'| OR;
+addOp : 'MONEY' | 'ME MONEY'| OR;
 mulOp : 'I went to college!' | 'I will destroy all of you!' | AND;
 
 fragment A :('a' | 'A');
@@ -162,12 +169,14 @@ ANETERNITYLATER    	 : A N E T E R N I T Y L A T E R;				//BEGIN
 GOODBYEFRIEND      	 : G O O D B Y E  F R I E N D ;					//END
 FISFORFRIENDS        : F I S F O R F R I E N D S;					//IF
 FISFORFIRE      	 : F I S F O R F I R E;							//ELSE
-RAVIOLIRAVIOLIGIVEME : R A V I O L I R A V I O L I G I V E M E;		//DO
-THEFORMULOLI     	 : T H E F O R M U O L I ;						//WHILE
+RAVIOLIRAVIOLIGIVEME : R A V I O L I R A V I O L I G I V E M E;		//WHILE
+THEFORMULOLI     	 : T H E F O R M U O L I ;						//DO
 IMREADYPROMOTION     : I M R E A D Y P R O M O T I O N;				//FOR
 ORDERUP    			 : O R D E R U P;								//WRITE
 YOUFORGOTTHEPICKLES  : Y O U F O R G O T T H E P I C K L E S;		//WRTIELN
 DOODLEBOB			 : D O O D L E B O B;
+IMMAGOOFYGOOBER		 : I M M A G O O F Y G O O B E R;
+
 OR: O R;
 AND: A N D;
 
@@ -175,7 +184,9 @@ TBUN	   : '(';
 BBUN 	   : ')';
 STARFISH   : '*';
 IDENTIFIER : [a-zA-Z][a-zA-Z0-9]* ;
-BUBBLEBUDDY    : [0-9]+ ;											//INTEGER
+BUBBLEBUDDY    : [0-9]+ ;	
+
+										//INTEGER
 
 SPONGEBOB  : BUBBLEBUDDY'.' BUBBLEBUDDY								//REAL
            | BUBBLEBUDDY ('e' | 'E') ('+' | '-')? BUBBLEBUDDY
