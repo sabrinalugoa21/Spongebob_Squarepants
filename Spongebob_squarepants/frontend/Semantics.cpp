@@ -193,7 +193,7 @@ Object Semantics::visitTypeDefinition(PascalParser::TypeDefinitionContext *ctx)
     typeId->appendLineNumber(ctx->getStart()->getLine());
     return nullptr;
 }
-
+/*
 Object Semantics::visitRecordTypespec(PascalParser::RecordTypespecContext *ctx)
 {
     // Create an unnamed record type.
@@ -258,6 +258,7 @@ Symtab *Semantics::createRecordSymtab(
 
     return recordSymtab;
 }
+*/
 
 Object Semantics::visitSimpleTypespec(PascalParser::SimpleTypespecContext *ctx)
 {
@@ -404,7 +405,7 @@ Object Semantics::visitSubrangeTypespec(
     ctx->type = type;
     return nullptr;
 }
-
+/*
 Object Semantics::visitArrayTypespec(PascalParser::ArrayTypespecContext *ctx)
 {
     Typespec *arrayType = new Typespec(ARRAY);
@@ -437,7 +438,7 @@ Object Semantics::visitArrayTypespec(PascalParser::ArrayTypespecContext *ctx)
 
     return nullptr;
 }
-
+*/
 int Semantics::typeCount(Typespec *type)
 {
     int count = 0;
@@ -499,6 +500,7 @@ Object Semantics::visitVariableDeclarations(
     return nullptr;
 }
 
+/*
 Object Semantics::visitRoutineDefinition(
                                     PascalParser::RoutineDefinitionContext *ctx)
 {
@@ -655,7 +657,7 @@ Object Semantics::visitParameterDeclarations(
 
     return parameterSublist;
 }
-
+*/
 Object Semantics::visitAssignmentStatement(
                                 PascalParser::AssignmentStatementContext *ctx)
 {
@@ -703,7 +705,7 @@ Object Semantics::visitIfStatement(PascalParser::IfStatementContext *ctx)
 
     return nullptr;
 }
-
+/*
 Object Semantics::visitCaseStatement(PascalParser::CaseStatementContext *ctx)
 {
     PascalParser::ExpressionContext *exprCtx = ctx->expression();
@@ -791,7 +793,7 @@ Object Semantics::visitRepeatStatement(
     visit(ctx->statementList());
     return nullptr;
 }
-
+*/
 Object Semantics::visitWhileStatement(PascalParser::WhileStatementContext *ctx)
 {
     PascalParser::ExpressionContext *exprCtx = ctx->expression();
@@ -806,7 +808,7 @@ Object Semantics::visitWhileStatement(PascalParser::WhileStatementContext *ctx)
     visit(ctx->statement());
     return nullptr;
 }
-
+/*
 Object Semantics::visitForStatement(PascalParser::ForStatementContext *ctx)
 {
     PascalParser::VariableContext *varCtx = ctx->variable();
@@ -978,6 +980,7 @@ void Semantics::checkCallArguments(
         }
     }
 }
+*/
 
 bool Semantics::expressionIsVariable(PascalParser::ExpressionContext *exprCtx)
 {

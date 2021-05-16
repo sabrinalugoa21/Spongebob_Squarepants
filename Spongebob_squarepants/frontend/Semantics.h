@@ -41,6 +41,7 @@ private:
      * @param exprCtx the ExpressionContext.
      * @return true if it's an expression only, else false.
      */
+ /*
     bool expressionIsVariable(PascalParser::ExpressionContext *exprCtx);
 
     /**
@@ -48,6 +49,7 @@ private:
      * @param listCtx the ArgumentListContext.
      * @param parameters the vector of parameters to fill.
      */
+
     void checkCallArguments(PascalParser::ArgumentListContext *listCtx,
                             vector<SymtabEntry *> *parms);
 
@@ -57,6 +59,8 @@ private:
      * @param varType the variable's datatype without the modifiers.
      * @return the datatype with any modifiers.
      */
+    /*
+
     Typespec *variableDatatype(PascalParser::VariableContext *varCtx,
                                Typespec *varType);
 
@@ -66,6 +70,8 @@ private:
      * @param recordTypeName the name of the record type.
      * @return the symbol table entry of the record type identifier.
      */
+
+    /*
     SymtabEntry *createRecordType(
                         PascalParser::RecordTypespecContext *recordTypeSpecCtx,
                         string recordTypeName);
@@ -75,6 +81,7 @@ private:
      * @param recordType the record type.
      * @return the pathname.
      */
+    /*
     string createRecordTypePath(Typespec *recordType);
 
     /**
@@ -83,9 +90,10 @@ private:
      * @param ownerId the symbol table entry of the owner's identifier.
      * @return the symbol table.
      */
+    /*
     Symtab *createRecordSymtab(
                 PascalParser::RecordFieldsContext *ctx, SymtabEntry *ownerId);
-
+*/
 public:
     Semantics(BackendMode mode) : mode(mode), programId(nullptr)
     {
@@ -124,13 +132,11 @@ public:
     Object visitConstantDefinition(PascalParser::ConstantDefinitionContext *ctx) override;
     Object visitConstant(PascalParser::ConstantContext *ctx) override;
     Object visitTypeDefinition(PascalParser::TypeDefinitionContext *ctx) override;
-    Object visitRecordTypespec(PascalParser::RecordTypespecContext *ctx) override;
     Object visitSimpleTypespec(PascalParser::SimpleTypespecContext *ctx) override;
     Object visitTypeIdentifierTypespec(PascalParser::TypeIdentifierTypespecContext *ctx) override;
     Object visitTypeIdentifier(PascalParser::TypeIdentifierContext *ctx) override;
     Object visitEnumerationTypespec(PascalParser::EnumerationTypespecContext *ctx) override;
-    Object visitSubrangeTypespec(PascalParser::SubrangeTypespecContext *ctx) override;
-    Object visitArrayTypespec(PascalParser::ArrayTypespecContext *ctx) override;
+   // Object visitSubrangeTypespec(PascalParser::SubrangeTypespecContext *ctx) override;
     Object visitVariableDeclarations(PascalParser::VariableDeclarationsContext *ctx) override;
     Object visitRoutineDefinition(PascalParser::RoutineDefinitionContext *ctx) override;
     Object visitParameterDeclarationsList(PascalParser::ParameterDeclarationsListContext *ctx) override;
@@ -138,12 +144,8 @@ public:
     Object visitAssignmentStatement(PascalParser::AssignmentStatementContext *ctx) override;
     Object visitLhs(PascalParser::LhsContext *ctx) override;
     Object visitIfStatement(PascalParser::IfStatementContext *ctx) override;
-    Object visitCaseStatement(PascalParser::CaseStatementContext *ctx) override;
-    Object visitRepeatStatement(PascalParser::RepeatStatementContext *ctx) override;
     Object visitWhileStatement(PascalParser::WhileStatementContext *ctx) override;
     Object visitForStatement(PascalParser::ForStatementContext *ctx) override;
-    Object visitProcedureCallStatement(PascalParser::ProcedureCallStatementContext *ctx) override;
-    Object visitFunctionCallFactor(PascalParser::FunctionCallFactorContext *ctx) override;
     Object visitExpression(PascalParser::ExpressionContext *ctx) override;
     Object visitSimpleExpression(PascalParser::SimpleExpressionContext *ctx) override;
     Object visitTerm(PascalParser::TermContext *ctx) override;

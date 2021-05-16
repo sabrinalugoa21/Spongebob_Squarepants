@@ -125,8 +125,6 @@ void Predefined::initializeConstants(SymtabStack *symtabStack)
 
 void Predefined::initializeStandardRoutines(SymtabStack *symtabStack)
 {
-    readId    = enterStandard(symtabStack, PROCEDURE, "read",    READ);
-    readlnId  = enterStandard(symtabStack, PROCEDURE, "readln",  READLN);
     writeId   = enterStandard(symtabStack, PROCEDURE, "write",   WRITE);
     writelnId = enterStandard(symtabStack, PROCEDURE, "writeln", WRITELN);
 
