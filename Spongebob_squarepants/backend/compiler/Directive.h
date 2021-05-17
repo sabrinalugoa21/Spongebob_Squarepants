@@ -1,11 +1,3 @@
-/**
- * <h1>Directive</h1>
- *
- * <p>Jasmin directives.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef DIRECTIVE_H_
 #define DIRECTIVE_H_
 

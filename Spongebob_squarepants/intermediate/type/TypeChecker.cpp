@@ -1,12 +1,4 @@
-/**
- * <h1>TypeChecker</h1>
- *
- * <p>Perform type checking.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "TypeChecker.h"
 #include "Typespec.h"
 

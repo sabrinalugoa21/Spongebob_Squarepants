@@ -1,23 +1,14 @@
-/**
- * <h1>CrossReferencer</h1>
- *
- * <p>Generate a cross-reference listing.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #include <iostream>
 #include <string>
 #include <vector>
 
 #include "antlr4-runtime.h"
-
 #include "CrossReferencer.h"
 #include "intermediate/type/Typespec.h"
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/Symtab.h"
-#include "intermediate/symtab/SymtabEntry.h"
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/Symtab.h"
+#include "intermediate/symbtab/SymtabEntry.h"
+#include "intermediate/symbtab/Predefined.h"
 
 namespace intermediate { namespace util {
 

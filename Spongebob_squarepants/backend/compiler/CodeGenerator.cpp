@@ -1,20 +1,12 @@
-/**
- * <h1>CodeGenerator</h1>
- *
- * <p>The Jasmin assembly code generator for the compiler.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #include <fstream>
 #include <sstream>
 #include <iomanip>
 #include <chrono>
-
+#include <iostream>
 #include "PascalBaseVisitor.h"
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
 #include "CodeGenerator.h"
 #include "Directive.h"
@@ -45,13 +37,6 @@ void CodeGenerator::open(string programName, string suffix)
     }
 }
 
-// =====================
-// General code emitters
-// =====================
-
-/**
- * Emit a blank line.
- */
 void CodeGenerator::emitLine()
 {
     *objectFile << endl;;

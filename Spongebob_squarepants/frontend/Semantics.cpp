@@ -3,10 +3,10 @@
 
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/Symtab.h"
-#include "intermediate/symtab/SymtabEntry.h"
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/Symtab.h"
+#include "intermediate/symbtab/SymtabEntry.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
 #include "intermediate/type/TypeChecker.h"
 #include "intermediate/util/CrossReferencer.h"

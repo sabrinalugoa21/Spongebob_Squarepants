@@ -4,8 +4,8 @@
 #include "PascalBaseVisitor.h"
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/SymtabEntry.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/SymtabEntry.h"
 #include "intermediate/type/Typespec.h"
 #include "ProgramGenerator.h"
 #include "StatementGenerator.h"

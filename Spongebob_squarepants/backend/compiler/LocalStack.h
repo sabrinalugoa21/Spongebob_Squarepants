@@ -1,11 +1,3 @@
-/**
- * <h1>LocalStack</h1>
- *
- * <p>Compute the local runtime stack size.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef LOCALSTACK_H_
 #define LOCALSTACK_H_
 

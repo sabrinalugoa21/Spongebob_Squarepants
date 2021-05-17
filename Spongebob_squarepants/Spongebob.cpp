@@ -4,18 +4,16 @@
 #include <thread>
 #include <chrono>
 
-#include "antlr4-runtime.h"
-#include "Spongebob_SquarepantsLexer.h"
-#include "Spongebob_SquarepantsParser.h"
+#include "usr/local/antlr4-runtime/antlr4-runtime.h"
+#include "PascalLexer.h"
+#include "PascalParser.h"
 
 #include "frontend/Listing.h"
 #include "frontend/SyntaxErrorHandler.h"
 #include "frontend/Semantics.h"
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
 #include "intermediate/util/BackendMode.h"
-#include "backend/converter/Converter.h"
-#include "backend/interpreter/Executor.h"
 #include "backend/compiler/Compiler.h"
 
 using namespace std;
@@ -25,8 +23,6 @@ using namespace antlr4;
 using namespace frontend;
 using namespace intermediate::type;
 using namespace intermediate::symtab;
-using namespace backend::converter;
-using namespace backend::interpreter;
 using namespace backend::compiler;
 
 int main(int argc, const char *args[])
@@ -34,22 +30,20 @@ int main(int argc, const char *args[])
     if (argc != 3)
     {
         cout << "USAGE: PascalJava option sourceFileName" << endl;
-        cout << "   option: -convert, -execute, or -compile" << endl;
+        cout << "   option: -compile" << endl;
         return -1;
     }
 
     string option = toLowerCase(args[1]);
     string sourceFileName = args[2];
 
-    BackendMode mode = EXECUTOR;
-
-    if      (option == "-convert") mode = CONVERTER;
-    else if (option == "-execute") mode = EXECUTOR;
-    else if (option == "-compile") mode = COMPILER;
+    BackendMode mode = '';
+    if (option == "-compile")
+    	mode = COMPILER;
     else
     {
         cout << "ERROR: Invalid option." << endl;
-        cout << "   Valid options: -convert, -execute, or -compile" << endl;
+        cout << "   Valid options: -compile" << endl;
         return -2;
     }
 
@@ -110,31 +104,7 @@ int main(int argc, const char *args[])
     }
 
     // Pass 3: Translation.
-    switch (mode)
-    {
-        case EXECUTOR:
-        {
-            // Pass 3: Execute the Pascal program.
-            cout << endl << "PASS 3 Execution:" << endl << endl;
-            SymtabEntry *programId = pass2->getProgramId();
-            Executor *pass3 = new Executor(programId);
-            pass3->visit(tree);
-            break;
-        }
-
-        case CONVERTER:
-        {
-            // Pass 3: Convert from Pascal to Java.
-            cout << endl << "PASS 3 Translation:" << endl;
-            Converter *pass3 = new Converter();
-            pass3->visit(tree);
-
-            cout << endl << "Object file \"" << pass3->getObjectFileName()
-                 << "\" created." << endl;
-            break;
-        }
-
-        case COMPILER:
+        if (mode == COMPILER)
         {
             // Pass 3: Compile the Pascal program.
             cout << endl << "PASS 3 Compilation: ";
@@ -146,7 +116,6 @@ int main(int argc, const char *args[])
                  << "\" created." << endl;
             break;
         }
-    }
 
     return 0;
 }

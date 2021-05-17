@@ -6,9 +6,9 @@
 #include "PascalBaseVisitor.h"
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/SymtabEntry.h"
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/SymtabEntry.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
 #include "intermediate/util/BackendMode.h"
 #include "SemanticErrorHandler.h"

@@ -1,19 +1,10 @@
-/**
- * <h1>Predefined</h1>
- *
- * <p>Enter the predefined Pascal types, identifiers, and constants
- * into the symbol table.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #include <vector>
 
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/SymtabEntry.h"
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/SymtabEntry.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
 #include "Predefined.h"
 

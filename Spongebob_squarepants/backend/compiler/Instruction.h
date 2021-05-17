@@ -1,11 +1,3 @@
-/**
- * <h1>Instruction</h1>
- *
- * <p>Jasmin instructions.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef INSTRUCTION_H_
 #define INSTRUCTION_H_
 

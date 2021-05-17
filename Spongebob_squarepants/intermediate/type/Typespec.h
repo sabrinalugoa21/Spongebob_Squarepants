@@ -1,11 +1,3 @@
-/**
- * <h1>Typespec</h1>
- *
- * <p>The type specification object for various datatypes.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef TYPESPEC_H_
 #define TYPESPEC_H_
 
@@ -13,7 +5,7 @@
 #include <vector>
 
 #include "../../Object.h"
-#include "intermediate/symtab/Symtab.h"
+#include "intermediate/symbtab/Symtab.h"
 
 namespace intermediate { namespace type {
 

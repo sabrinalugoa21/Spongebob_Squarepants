@@ -1,11 +1,3 @@
-/**
- * <h1>CodeGenerator</h1>
- *
- * <p>The Jasmin assembly code generator for the compiler.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef COMPILER_CODEGENERATOR_H_
 #define COMPILER_CODEGENERATOR_H_
 
@@ -14,8 +6,8 @@
 #include "PascalBaseVisitor.h"
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/SymtabEntry.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/SymtabEntry.h"
 #include "intermediate/type/Typespec.h"
 #include "Directive.h"
 #include "Label.h"

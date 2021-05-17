@@ -1,4 +1,4 @@
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "Compiler.h"
 
 namespace backend { namespace compiler {

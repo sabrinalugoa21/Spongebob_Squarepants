@@ -1,20 +1,11 @@
-/**
- * <h1>Predefined</h1>
- *
- * <p>Enter the predefined Pascal types, identifiers, and constants
- * into the symbol table.</p>
- *
- * <p>Copyright (c) 2009 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef PREDEFINED_H_
 #define PREDEFINED_H_
 
 #include <vector>
 
 #include "../../Object.h"
-#include "intermediate/symtab/SymtabStack.h"
-#include "intermediate/symtab/SymtabEntry.h"
+#include "intermediate/symbtab/SymtabStack.h"
+#include "intermediate/symbtab/SymtabEntry.h"
 #include "intermediate/type/Typespec.h"
 
 namespace intermediate { namespace symtab {

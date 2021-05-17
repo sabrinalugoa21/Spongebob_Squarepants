@@ -1,7 +1,7 @@
 #include "PascalBaseVisitor.h"
-#include "antlr4-runtime.h"
+#include "Includes/usr/local/include/antlr4-runtime/antlr4-runtime.h"
 
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "intermediate/type/Typespec.h"
 #include "CodeGenerator.h"
 #include "ExpressionGenerator.h"

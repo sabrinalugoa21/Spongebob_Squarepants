@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <iostream>
 
 #include "antlr4-runtime.h"
 
@@ -139,7 +140,8 @@ public:
                                        text.c_str());
     }
 
-    void flag(Error error, antlr4::ParserRuleContext *ctx)
+    void flag(Error error, antlr4::Parser
+    		RuleContext *ctx)
     {
         flag(error, ctx->getStart()->getLine(), ctx->getText());
     }

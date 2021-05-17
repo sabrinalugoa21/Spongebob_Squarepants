@@ -1,11 +1,3 @@
-/**
- * <h1>TypeChecker</h1>
- *
- * <p>Perform type checking.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef TYPECHECKER_H_
 #define TYPECHECKER_H_
 

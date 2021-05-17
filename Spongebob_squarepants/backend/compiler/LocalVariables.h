@@ -1,11 +1,3 @@
-/**
- * <h1>LocalVariables</h1>
- *
- * <p>Keep track of the use of slots in a local variables array.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef LOCALVARIABLES_H_
 #define LOCALVARIABLES_H_
 

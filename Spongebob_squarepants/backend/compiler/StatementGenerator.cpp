@@ -5,7 +5,7 @@
 #include "PascalBaseVisitor.h"
 #include "antlr4-runtime.h"
 
-#include "intermediate/symtab/Predefined.h"
+#include "intermediate/symbtab/Predefined.h"
 #include "Compiler.h"
 #include "StatementGenerator.h"
 

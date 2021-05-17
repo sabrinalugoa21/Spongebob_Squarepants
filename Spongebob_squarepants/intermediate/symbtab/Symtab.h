@@ -1,11 +1,3 @@
-/**
- * <h1>Symtab</h1>
- *
- * <p>The symbol table.</p>
- *
- * <p>Copyright (c) 2020 by Ronald Mak</p>
- * <p>For instructional purposes only.  No warranties.</p>
- */
 #ifndef SYMTABIMPL_H_
 #define SYMTABIMPL_H_
 
