@@ -2,7 +2,7 @@
 #include <vector>
 #include <map>
 
-#include "PascalBaseVisitor.h"
+#include "Spongebob_SquarepantsBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symbtab/Predefined.h"
@@ -14,17 +14,17 @@ namespace backend { namespace compiler {
 using namespace std;
 using namespace intermediate;
 
-void StatementGenerator::emitAssignment(PascalParser::AssignmentStatementContext *ctx)
+void StatementGenerator::emitAssignment(Spongebob_SquarepantsParser::AssignmentStatementContext *ctx)
 {
-    PascalParser::VariableContext *varCtx  = ctx->lhs()->variable();
-    PascalParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
+	Spongebob_SquarepantsParser::VariableContext *varCtx  = ctx->lhs()->variable();
+	Spongebob_SquarepantsParser::ExpressionContext *exprCtx = ctx->rhs()->expression();
     SymtabEntry *varId = varCtx->entry;
     Typespec *varType  = varCtx->type;
     Typespec *exprType = exprCtx->type;
 
     // The last modifier, if any, is the variable's last subscript or field.
     int modifierCount = varCtx->modifier().size();
-    PascalParser::ModifierContext *lastModCtx = modifierCount == 0
+    Spongebob_SquarepantsParser::ModifierContext *lastModCtx = modifierCount == 0
                             ? nullptr : varCtx->modifier()[modifierCount - 1];
 
     // The target variable has subscripts and/or fields.
@@ -58,7 +58,7 @@ void StatementGenerator::emitAssignment(PascalParser::AssignmentStatementContext
     }
 }
 
-void StatementGenerator::emitIf(PascalParser::IfStatementContext *ctx)
+void StatementGenerator::emitIf(Spongebob_SquarepantsParser::IfStatementContext *ctx)
 {
    	Label *TopThen = new Label();
 	Label *TopElse = new Label();
@@ -77,53 +77,8 @@ void StatementGenerator::emitIf(PascalParser::IfStatementContext *ctx)
 	emitLabel(ExitLabel);
 }
 
-void StatementGenerator::emitCase(PascalParser::CaseStatementContext *ctx)
-{
-    	vector<Label*> Label_Arr;
-	Label* ExitLabel = new Label();
-	Label_Arr.push_back(new Label());
-	int count = 0;
 
-
-	for(PascalParser::CaseBranchContext *brch : ctx->caseBranchList()->caseBranch()) {
-
-		if (!brch->statement()) break;
-
-		for (PascalParser::CaseConstantContext *cse : brch->caseConstantList()->caseConstant())  {
-			emitLabel(Label_Arr[count]);
-			count++;
-			compiler->visit(ctx->expression());
-			emitLoadConstant(cse->value);
-
-			Label_Arr.push_back(new Label());
-			emit(IF_ICMPNE, Label_Arr[count]);
-
-			compiler->visit(brch->statement());
-
-			emit(GOTO, ExitLabel);
-
-		}
-	}
-	emitLabel(Label_Arr[count]);
-	emitLabel(ExitLabel);
-}
-
-void StatementGenerator::emitRepeat(PascalParser::RepeatStatementContext *ctx)
-{
-    Label *loopTopLabel  = new Label();
-    Label *loopExitLabel = new Label();
-
-    emitLabel(loopTopLabel);
-
-    compiler->visit(ctx->statementList());
-    compiler->visit(ctx->expression());
-    emit(IFNE, loopExitLabel);
-    emit(GOTO, loopTopLabel);
-
-    emitLabel(loopExitLabel);
-}
-
-void StatementGenerator::emitWhile(PascalParser::WhileStatementContext *ctx)
+void StatementGenerator::emitWhile(Spongebob_SquarepantsParser::WhileStatementContext *ctx)
 {
     	Label *loopTopLabel = new Label();
 	Label *loopExitLabel = new Label();
@@ -138,70 +93,35 @@ void StatementGenerator::emitWhile(PascalParser::WhileStatementContext *ctx)
 	emitLabel(loopExitLabel);
 }
 
-void StatementGenerator::emitFor(PascalParser::ForStatementContext *ctx)
-{
-    	Label *TopLoop = new Label();
-	Label  *ExitLoop = new Label();
 
-	compiler->visit(ctx->expression(0));
-
-	string variableName = ctx->variable()->variableIdentifier()->getText();
-	string name = programName + "/" + variableName;
-
-	emitStoreValue(ctx->variable()->variableIdentifier()->entry, ctx->variable()->variableIdentifier()->type);
-	
-	emitLabel(TopLoop);
-	emitLoadValue(ctx->variable()->variableIdentifier()->entry);
-	compiler->visit(ctx->expression(1));
-	if (ctx->TO()) emit(IF_ICMPGT, ExitLoop);
-	else emit(IF_ICMPLT, ExitLoop);
-	compiler->visit(ctx->statement());
-
-	emitLoadValue(ctx->variable()->variableIdentifier()->entry);
-	emit(ICONST_1);
-	if (ctx->TO()) emit(IADD);
-	else emit(ISUB);
-
-	emitStoreValue(ctx->variable()->variableIdentifier()->entry, ctx->variable()->variableIdentifier()->type);
-
-	emit(GOTO, TopLoop);
-	emitLabel(ExitLoop);
-}
-
-void StatementGenerator::emitProcedureCall(PascalParser::ProcedureCallStatementContext *ctx)
-{
-    	SymtabEntry *val = ctx->procedureName()->entry;
-	emitCall(val, ctx->argumentList());
-}
-
-void StatementGenerator::emitFunctionCall(PascalParser::FunctionCallContext *ctx)
+void StatementGenerator::emitFunctionCall(Spongebob_SquarepantsParser::FunctionCallContext *ctx)
 {
     	SymtabEntry *val = ctx->functionName()->entry;
 	emitCall(val, ctx->argumentList());
 }
 
 void StatementGenerator::emitCall(SymtabEntry *routineId,
-                                  PascalParser::ArgumentListContext *argListCtx)
+		Spongebob_SquarepantsParser::ArgumentListContext *argListCtx)
 {
     	string FnName = routineId->getName();
 	string ArgType = "";
 
-	for (PascalParser::ArgumentContext *ex : argListCtx->argument()) {
+	for (Spongebob_SquarepantsParser::ArgumentContext *ex : argListCtx->argument()) {
 		ex->expression()->type;
 	}
 }
 
-void StatementGenerator::emitWrite(PascalParser::WriteStatementContext *ctx)
+void StatementGenerator::emitWrite(Spongebob_SquarepantsParser::WriteStatementContext *ctx)
 {
     emitWrite(ctx->writeArguments(), false);
 }
 
-void StatementGenerator::emitWriteln(PascalParser::WritelnStatementContext *ctx)
+void StatementGenerator::emitWriteln(Spongebob_SquarepantsParser::WritelnStatementContext *ctx)
 {
     emitWrite(ctx->writeArguments(), true);
 }
 
-void StatementGenerator::emitWrite(PascalParser::WriteArgumentsContext *argsCtx,
+void StatementGenerator::emitWrite(Spongebob_SquarepantsParser::WriteArgumentsContext *argsCtx,
                       bool needLF)
 {
     emit(GETSTATIC, "java/lang/System/out", "Ljava/io/PrintStream;");
@@ -244,14 +164,14 @@ void StatementGenerator::emitWrite(PascalParser::WriteArgumentsContext *argsCtx,
 }
 
 int StatementGenerator::createWriteFormat(
-                                PascalParser::WriteArgumentsContext *argsCtx,
+		Spongebob_SquarepantsParser::WriteArgumentsContext *argsCtx,
                                 string& format, bool needLF)
 {
     int exprCount = 0;
     format += "\"";
 
     // Loop over the write arguments.
-    for (PascalParser::WriteArgumentContext *argCtx : argsCtx->writeArgument())
+    for (Spongebob_SquarepantsParser::WriteArgumentContext *argCtx : argsCtx->writeArgument())
     {
         Typespec *type = argCtx->expression()->type;
         string argText = argCtx->getText();
@@ -265,14 +185,14 @@ int StatementGenerator::createWriteFormat(
             exprCount++;
             format.append("%");
 
-            PascalParser::FieldWidthContext *fwCtx = argCtx->fieldWidth();
+            Spongebob_SquarepantsParser::FieldWidthContext *fwCtx = argCtx->fieldWidth();
             if (fwCtx != nullptr)
             {
                 string sign = (   (fwCtx->sign() != nullptr)
                                && (fwCtx->sign()->getText() == "-")) ? "-" : "";
                 format += sign + fwCtx->integerConstant()->getText();
 
-                PascalParser::DecimalPlacesContext *dpCtx =
+                Spongebob_SquarepantsParser::DecimalPlacesContext *dpCtx =
                                                         fwCtx->decimalPlaces();
                 if (dpCtx != nullptr)
                 {
@@ -295,7 +215,7 @@ int StatementGenerator::createWriteFormat(
 }
 
 void StatementGenerator::emitArgumentsArray(
-                    PascalParser::WriteArgumentsContext *argsCtx, int exprCount)
+		Spongebob_SquarepantsParser::WriteArgumentsContext *argsCtx, int exprCount)
 {
     // Create the arguments array.
     emitLoadConstant(exprCount);
@@ -304,11 +224,11 @@ void StatementGenerator::emitArgumentsArray(
     int index = 0;
 
     // Loop over the write arguments to fill the arguments array.
-    for (PascalParser::WriteArgumentContext *argCtx :
+    for (Spongebob_SquarepantsParser::WriteArgumentContext *argCtx :
                                                 argsCtx->writeArgument())
     {
         string argText = argCtx->getText();
-        PascalParser::ExpressionContext *exprCtx = argCtx->expression();
+        Spongebob_SquarepantsParser::ExpressionContext *exprCtx = argCtx->expression();
         Typespec *type = exprCtx->type->baseType();
 
         // Skip string constants, which were made part of
@@ -332,79 +252,6 @@ void StatementGenerator::emitArgumentsArray(
         }
     }
 }
-
-void StatementGenerator::emitRead(PascalParser::ReadStatementContext *ctx)
-{
-    emitRead(ctx->readArguments(), false);
-}
-
-void StatementGenerator::emitReadln(PascalParser::ReadlnStatementContext *ctx)
-{
-    emitRead(ctx->readArguments(), true);
-}
-
-void StatementGenerator::emitRead(PascalParser::ReadArgumentsContext *argsCtx,
-                                  bool needSkip)
-{
-    int size = argsCtx->variable().size();
-
-    // Loop over read arguments.
-    for (int i = 0; i < size; i++)
-    {
-        PascalParser::VariableContext *varCtx = argsCtx->variable()[i];
-        Typespec *varType = varCtx->type;
-
-        if (varType == Predefined::integerType)
-        {
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(INVOKEVIRTUAL, "java/util/Scanner/nextInt()I");
-            emitStoreValue(varCtx->entry, nullptr);
-        }
-        else if (varType == Predefined::realType)
-        {
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(INVOKEVIRTUAL, "java/util/Scanner/nextFloat()F");
-            emitStoreValue(varCtx->entry, nullptr);
-        }
-        else if (varType == Predefined::booleanType)
-        {
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(INVOKEVIRTUAL, "java/util/Scanner/nextBoolean()Z");
-            emitStoreValue(varCtx->entry, nullptr);
-        }
-        else if (varType == Predefined::charType)
-        {
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(LDC, "\"\"");
-            emit(INVOKEVIRTUAL,
-                 string("java/util/Scanner/useDelimiter(Ljava/lang/String;)") +
-                 string("Ljava/util/Scanner;"));
-            emit(POP);
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(INVOKEVIRTUAL, "java/util/Scanner/next()Ljava/lang/String;");
-            emit(ICONST_0);
-            emit(INVOKEVIRTUAL, "java/lang/String/charAt(I)C");
-            emitStoreValue(varCtx->entry, nullptr);
-
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(INVOKEVIRTUAL, "java/util/Scanner/reset()Ljava/util/Scanner;");
-
-        }
-        else  // string
-        {
-            emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-            emit(INVOKEVIRTUAL, "java/util/Scanner/next()Ljava/lang/String;");
-            emitStoreValue(varCtx->entry, nullptr);
-        }
-    }
-
-    // READLN: Skip the rest of the input line.
-    if (needSkip)
-    {
-        emit(GETSTATIC, programName + "/_sysin Ljava/util/Scanner;");
-        emit(INVOKEVIRTUAL, "java/util/Scanner/nextLine()Ljava/lang/String;");
-        emit(POP);
-    }
 }
 
 }} // namespace backend::compiler

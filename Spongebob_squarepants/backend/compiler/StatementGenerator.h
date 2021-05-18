@@ -25,84 +25,63 @@ public:
      * Emit code for an assignment statement.
      * @param ctx the AssignmentStatementContext.
      */
-    void emitAssignment(PascalParser::AssignmentStatementContext *ctx);
+    void emitAssignment(Spongebob_SquarepantsParser::AssignmentStatementContext *ctx);
 
     /**
      * Emit code for an IF statement.
      * @param ctx the IfStatementContext.
      */
-    void emitIf(PascalParser::IfStatementContext *ctx);
-
-    /**
-     * Emit code for a CASE statement.
-     * @param ctx the CaseStatementContext.
-     */
-    void emitCase(PascalParser::CaseStatementContext *ctx);
-
-    /**
-     * Emit code for a REPEAT statement.
-     * @param ctx the RepeatStatementContext.
-     */
-    void emitRepeat(PascalParser::RepeatStatementContext *ctx);
+    void emitIf(Spongebob_SquarepantsParser::IfStatementContext *ctx);
 
     /**
      * Emit code for a WHILE statement.
      * @param ctx the WhileStatementContext.
      */
-    void emitWhile(PascalParser::WhileStatementContext *ctx);
+    void emitWhile(Spongebob_SquarepantsParser::WhileStatementContext *ctx);
 
     /**
      * Emit code for a FOR statement.
      * @param ctx the ForStatementContext.
      */
-    void emitFor(PascalParser::ForStatementContext *ctx);
+    void emitFor(Spongebob_SquarepantsParser::ForStatementContext *ctx);
 
     /**
      * Emit code for a procedure call statement.
      * @param ctx the ProcedureCallStatementContext.
      */
-    void emitProcedureCall(PascalParser::ProcedureCallStatementContext *ctx);
+    void emitProcedureCall(Spongebob_SquarepantsParser::ProcedureCallStatementContext *ctx);
 
     /**
      * Emit code for a function call statement.
      * @param ctx the FunctionCallContext.
      */
-    void emitFunctionCall(PascalParser::FunctionCallContext *ctx);
+    void emitFunctionCall(Spongebob_SquarepantsParser::FunctionCallContext *ctx);
 
     /**
      * Emit code for a WRITE statement.
      * @param ctx the WriteStatementContext.
      */
-    void emitWrite(PascalParser::WriteStatementContext *ctx);
+    void emitWrite(Spongebob_SquarepantsParser::WriteStatementContext *ctx);
 
     /**
      * Emit code for a WRITELN statement.
      * @param ctx the WritelnStatementContext.
      */
-    void emitWriteln(PascalParser::WritelnStatementContext *ctx);
+    void emitWriteln(Spongebob_SquarepantsParser::WritelnStatementContext *ctx);
 
     /**
      * Emit code for a READ statement.
      * @param ctx the ReadStatementContext.
      */
-    void emitRead(PascalParser::ReadStatementContext *ctx);
+    void emitRead(Spongebob_SquarepantsParser::ReadStatementContext *ctx);
 
     /**
      * Emit code for a READLN statement.
      * @param ctx the ReadlnStatementContext.
      */
-    void emitReadln(PascalParser::ReadlnStatementContext *ctx);
+    void emitReadln(Spongebob_SquarepantsParser::ReadlnStatementContext *ctx);
 
 private:
-    /**
-     * Process the CASE map from the CASE branches.
-     * @param branchListCtx the CaseBranchListContext.
-     * @param branchLabels the branch labels.
-     * @return the array list of table entries.
-     */
-    map<int, Label *> *createCaseMap(
-                            PascalParser::CaseBranchListContext *branchListCtx,
-                            vector<Label *>& branchLabels);
 
     /**
      * Emit code for the LOOKUPSWITCH instruction.
@@ -113,29 +92,11 @@ private:
                           vector<Label *>& branchLabels);
 
     /**
-     * Emit code for the branch statements.
-     * @param branchListCtx the CaseBranchListContext.
-     * @param branchLabels the branch labels
-     * @throws PascalCompilerException if an error occurred.
-     */
-    void emitBranchStatements(
-                            PascalParser::CaseBranchListContext *branchListCtx,
-                            vector<Label *>& branchLabels);
-
-    /**
-     * Emit a call to a procedure or a function.
-     * @param routineId the routine name's symbol table entry.
-     * @param argListCtx the ArgumentListContext.
-     */
-    void emitCall(SymtabEntry *routineId,
-                  PascalParser::ArgumentListContext *argListCtx);
-
-    /**
      * Emit code for a call to WRITE or WRITELN.
      * @param argsCtx the WriteArgumentsContext.
      * @param needLF true if need a line feed.
      */
-    void emitWrite(PascalParser::WriteArgumentsContext *argsCtx, bool needLF);
+    void emitWrite(Spongebob_SquarepantsParser::WriteArgumentsContext *argsCtx, bool needLF);
 
     /**
      * Create the printf format string.
@@ -143,7 +104,7 @@ private:
      * @param format the format string to create.
      * @return the count of expression arguments.
      */
-    int createWriteFormat(PascalParser::WriteArgumentsContext *argsCtx,
+    int createWriteFormat(Spongebob_SquarepantsParser::WriteArgumentsContext *argsCtx,
                           string& format, bool needLF);
 
     /**
@@ -151,7 +112,7 @@ private:
      * @param argsCtx
      * @param exprCount
      */
-    void emitArgumentsArray(PascalParser::WriteArgumentsContext *argsCtx,
+    void emitArgumentsArray(Spongebob_SquarepantsParser::WriteArgumentsContext *argsCtx,
                             int exprCount);
 
     /**
@@ -159,7 +120,7 @@ private:
      * @param argsCtx the ReadArgumentsContext.
      * @param needSkip true if need to skip the rest of the input line.
      */
-    void emitRead(PascalParser::ReadArgumentsContext *argsCtx, bool needSkip);
+    void emitRead(Spongebob_SquarepantsParser::ReadArgumentsContext *argsCtx, bool needSkip);
 };
 
 }} // namespace backend::compiler

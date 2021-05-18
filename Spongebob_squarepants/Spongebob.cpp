@@ -4,9 +4,9 @@
 #include <thread>
 #include <chrono>
 
-#include "usr/local/antlr4-runtime/antlr4-runtime.h"
-#include "PascalLexer.h"
-#include "PascalParser.h"
+#include "antlr4-runtime.h"
+#include "Spongebob_SquarepantsLexer.h"
+#include "Spongebob_SquarepantsParser.h"
 
 #include "frontend/Listing.h"
 #include "frontend/SyntaxErrorHandler.h"
@@ -61,13 +61,13 @@ int main(int argc, const char *args[])
 
     // Create a lexer which scans the character stream
     // to create a token stream.
-    PascalLexer lexer(&input);
+    Spongebob_SquarepantsLexer lexer(&input);
     lexer.removeErrorListeners();
     lexer.addErrorListener(&syntaxErrorHandler);
     CommonTokenStream tokens(&lexer);
 
     // Create a parser which parses the token stream.
-    PascalParser parser(&tokens);
+    Spongebob_SquarepantsParser parser(&tokens);
 
     // Pass 1: Check syntax and create the parse tree.
     cout << endl << "PASS 1 Syntax: ";

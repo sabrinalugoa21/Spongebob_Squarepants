@@ -65,6 +65,18 @@ public interface Spongebob_SquarepantsListener extends ParseTreeListener {
 	 */
 	void exitSign(@NotNull Spongebob_SquarepantsParser.SignContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code typeIdentifierTypespec}
+	 * labeled alternative in {@link Spongebob_SquarepantsParser#simpleType}.
+	 * @param ctx the parse tree
+	 */
+	void enterTypeIdentifierTypespec(@NotNull Spongebob_SquarepantsParser.TypeIdentifierTypespecContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code typeIdentifierTypespec}
+	 * labeled alternative in {@link Spongebob_SquarepantsParser#simpleType}.
+	 * @param ctx the parse tree
+	 */
+	void exitTypeIdentifierTypespec(@NotNull Spongebob_SquarepantsParser.TypeIdentifierTypespecContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#program}.
 	 * @param ctx the parse tree
 	 */
@@ -105,6 +117,18 @@ public interface Spongebob_SquarepantsListener extends ParseTreeListener {
 	 */
 	void exitNumber(@NotNull Spongebob_SquarepantsParser.NumberContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code enumerationTypespec}
+	 * labeled alternative in {@link Spongebob_SquarepantsParser#simpleType}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumerationTypespec(@NotNull Spongebob_SquarepantsParser.EnumerationTypespecContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code enumerationTypespec}
+	 * labeled alternative in {@link Spongebob_SquarepantsParser#simpleType}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumerationTypespec(@NotNull Spongebob_SquarepantsParser.EnumerationTypespecContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#block}.
 	 * @param ctx the parse tree
 	 */
@@ -124,16 +148,6 @@ public interface Spongebob_SquarepantsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTypeSpecification(@NotNull Spongebob_SquarepantsParser.TypeSpecificationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#simpleType}.
-	 * @param ctx the parse tree
-	 */
-	void enterSimpleType(@NotNull Spongebob_SquarepantsParser.SimpleTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Spongebob_SquarepantsParser#simpleType}.
-	 * @param ctx the parse tree
-	 */
-	void exitSimpleType(@NotNull Spongebob_SquarepantsParser.SimpleTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#programHeader}.
 	 * @param ctx the parse tree
@@ -164,6 +178,16 @@ public interface Spongebob_SquarepantsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitUnsignedNumber(@NotNull Spongebob_SquarepantsParser.UnsignedNumberContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#enumerationConstant}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumerationConstant(@NotNull Spongebob_SquarepantsParser.EnumerationConstantContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Spongebob_SquarepantsParser#enumerationConstant}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumerationConstant(@NotNull Spongebob_SquarepantsParser.EnumerationConstantContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#characterConstant}.
 	 * @param ctx the parse tree
@@ -484,6 +508,16 @@ public interface Spongebob_SquarepantsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLhs(@NotNull Spongebob_SquarepantsParser.LhsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#enumerationType}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumerationType(@NotNull Spongebob_SquarepantsParser.EnumerationTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Spongebob_SquarepantsParser#enumerationType}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumerationType(@NotNull Spongebob_SquarepantsParser.EnumerationTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Spongebob_SquarepantsParser#variable}.
 	 * @param ctx the parse tree

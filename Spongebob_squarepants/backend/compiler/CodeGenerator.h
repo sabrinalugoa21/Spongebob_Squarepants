@@ -3,7 +3,7 @@
 
 #include <fstream>
 
-#include "PascalBaseVisitor.h"
+#include "Spongebob_SquarepantsBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symbtab/SymtabStack.h"
@@ -96,7 +96,7 @@ public:
      * Emit a statement comment.
      * @param ctx the StatementContext.
      */
-    void emitComment(PascalParser::StatementContext *ctx);
+    void emitComment(Spongebob_SquarepantsParser::StatementContext *ctx);
 
     /**
      * Emit a label.

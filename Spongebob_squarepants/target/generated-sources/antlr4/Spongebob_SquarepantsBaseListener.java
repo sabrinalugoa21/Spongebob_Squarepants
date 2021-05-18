@@ -83,6 +83,18 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTypeIdentifierTypespec(@NotNull Spongebob_SquarepantsParser.TypeIdentifierTypespecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTypeIdentifierTypespec(@NotNull Spongebob_SquarepantsParser.TypeIdentifierTypespecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterProgram(@NotNull Spongebob_SquarepantsParser.ProgramContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -131,6 +143,18 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterEnumerationTypespec(@NotNull Spongebob_SquarepantsParser.EnumerationTypespecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumerationTypespec(@NotNull Spongebob_SquarepantsParser.EnumerationTypespecContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBlock(@NotNull Spongebob_SquarepantsParser.BlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -150,18 +174,6 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTypeSpecification(@NotNull Spongebob_SquarepantsParser.TypeSpecificationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSimpleType(@NotNull Spongebob_SquarepantsParser.SimpleTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSimpleType(@NotNull Spongebob_SquarepantsParser.SimpleTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -198,6 +210,18 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitUnsignedNumber(@NotNull Spongebob_SquarepantsParser.UnsignedNumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEnumerationConstant(@NotNull Spongebob_SquarepantsParser.EnumerationConstantContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumerationConstant(@NotNull Spongebob_SquarepantsParser.EnumerationConstantContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -582,6 +606,18 @@ public class Spongebob_SquarepantsBaseListener implements Spongebob_SquarepantsL
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLhs(@NotNull Spongebob_SquarepantsParser.LhsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEnumerationType(@NotNull Spongebob_SquarepantsParser.EnumerationTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnumerationType(@NotNull Spongebob_SquarepantsParser.EnumerationTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

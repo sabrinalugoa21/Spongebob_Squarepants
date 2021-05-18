@@ -30,8 +30,6 @@ SymtabEntry *Predefined::charId;
 SymtabEntry *Predefined::stringId;
 SymtabEntry *Predefined::falseId;
 SymtabEntry *Predefined::trueId;
-SymtabEntry *Predefined::readId;
-SymtabEntry *Predefined::readlnId;
 SymtabEntry *Predefined::writeId;
 SymtabEntry *Predefined::writelnId;
 SymtabEntry *Predefined::absId;

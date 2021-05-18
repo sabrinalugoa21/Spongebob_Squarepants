@@ -47,28 +47,30 @@ public class Spongebob_SquarepantsParser extends Parser {
 		RULE_constantIdentifier = 7, RULE_constant = 8, RULE_sign = 9, RULE_variablesPart = 10, 
 		RULE_variableDeclarationList = 11, RULE_variableDeclarations = 12, RULE_variableIdentifierList = 13, 
 		RULE_variableIdentifier = 14, RULE_typeSpecification = 15, RULE_simpleType = 16, 
-		RULE_typeIdentifier = 17, RULE_statement = 18, RULE_compoundStatement = 19, 
-		RULE_emptyStatement = 20, RULE_statementlist = 21, RULE_assignmentStatement = 22, 
-		RULE_lhs = 23, RULE_rhs = 24, RULE_ifStatement = 25, RULE_truestatement = 26, 
-		RULE_falsestatement = 27, RULE_whileStatement = 28, RULE_writeStatement = 29, 
-		RULE_writelnStatement = 30, RULE_writeArguments = 31, RULE_writeArgument = 32, 
-		RULE_expression = 33, RULE_simpleExpression = 34, RULE_term = 35, RULE_factor = 36, 
-		RULE_variable = 37, RULE_modifier = 38, RULE_indexList = 39, RULE_index = 40, 
-		RULE_field = 41, RULE_number = 42, RULE_unsignedNumber = 43, RULE_integerConstant = 44, 
-		RULE_realConstant = 45, RULE_characterConstant = 46, RULE_stringConstant = 47, 
-		RULE_relOp = 48, RULE_addOp = 49, RULE_mulOp = 50;
+		RULE_enumerationType = 17, RULE_enumerationConstant = 18, RULE_typeIdentifier = 19, 
+		RULE_statement = 20, RULE_compoundStatement = 21, RULE_emptyStatement = 22, 
+		RULE_statementlist = 23, RULE_assignmentStatement = 24, RULE_lhs = 25, 
+		RULE_rhs = 26, RULE_ifStatement = 27, RULE_truestatement = 28, RULE_falsestatement = 29, 
+		RULE_whileStatement = 30, RULE_writeStatement = 31, RULE_writelnStatement = 32, 
+		RULE_writeArguments = 33, RULE_writeArgument = 34, RULE_expression = 35, 
+		RULE_simpleExpression = 36, RULE_term = 37, RULE_factor = 38, RULE_variable = 39, 
+		RULE_modifier = 40, RULE_indexList = 41, RULE_index = 42, RULE_field = 43, 
+		RULE_number = 44, RULE_unsignedNumber = 45, RULE_integerConstant = 46, 
+		RULE_realConstant = 47, RULE_characterConstant = 48, RULE_stringConstant = 49, 
+		RULE_relOp = 50, RULE_addOp = 51, RULE_mulOp = 52;
 	public static final String[] ruleNames = {
 		"program", "programHeader", "block", "declarations", "constantsPart", 
 		"constantDefinitionList", "constantDefinition", "constantIdentifier", 
 		"constant", "sign", "variablesPart", "variableDeclarationList", "variableDeclarations", 
 		"variableIdentifierList", "variableIdentifier", "typeSpecification", "simpleType", 
-		"typeIdentifier", "statement", "compoundStatement", "emptyStatement", 
-		"statementlist", "assignmentStatement", "lhs", "rhs", "ifStatement", "truestatement", 
-		"falsestatement", "whileStatement", "writeStatement", "writelnStatement", 
-		"writeArguments", "writeArgument", "expression", "simpleExpression", "term", 
-		"factor", "variable", "modifier", "indexList", "index", "field", "number", 
-		"unsignedNumber", "integerConstant", "realConstant", "characterConstant", 
-		"stringConstant", "relOp", "addOp", "mulOp"
+		"enumerationType", "enumerationConstant", "typeIdentifier", "statement", 
+		"compoundStatement", "emptyStatement", "statementlist", "assignmentStatement", 
+		"lhs", "rhs", "ifStatement", "truestatement", "falsestatement", "whileStatement", 
+		"writeStatement", "writelnStatement", "writeArguments", "writeArgument", 
+		"expression", "simpleExpression", "term", "factor", "variable", "modifier", 
+		"indexList", "index", "field", "number", "unsignedNumber", "integerConstant", 
+		"realConstant", "characterConstant", "stringConstant", "relOp", "addOp", 
+		"mulOp"
 	};
 
 	@Override
@@ -117,9 +119,9 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(102); programHeader();
-			setState(103); block();
-			setState(104); match(T__8);
+			setState(106); programHeader();
+			setState(107); block();
+			setState(108); match(T__8);
 			}
 		}
 		catch (RecognitionException re) {
@@ -155,8 +157,8 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(106); match(BIKINIBOTTOM);
-			setState(107); match(T__18);
+			setState(110); match(BIKINIBOTTOM);
+			setState(111); match(T__18);
 			}
 		}
 		catch (RecognitionException re) {
@@ -197,8 +199,8 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(109); declarations();
-			setState(110); compoundStatement();
+			setState(113); declarations();
+			setState(114); compoundStatement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -240,21 +242,21 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(115);
+			setState(119);
 			_la = _input.LA(1);
 			if (_la==IMAGOODNOODLE) {
 				{
-				setState(112); constantsPart();
-				setState(113); match(T__18);
+				setState(116); constantsPart();
+				setState(117); match(T__18);
 				}
 			}
 
-			setState(120);
+			setState(124);
 			_la = _input.LA(1);
 			if (_la==IMMAGOOFYGOOBER) {
 				{
-				setState(117); variablesPart();
-				setState(118); match(T__18);
+				setState(121); variablesPart();
+				setState(122); match(T__18);
 				}
 			}
 
@@ -296,8 +298,8 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(122); match(IMAGOODNOODLE);
-			setState(123); constantDefinitionList();
+			setState(126); match(IMAGOODNOODLE);
+			setState(127); constantDefinitionList();
 			}
 		}
 		catch (RecognitionException re) {
@@ -339,20 +341,20 @@ public class Spongebob_SquarepantsParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(125); constantDefinition();
-			setState(130);
+			setState(129); constantDefinition();
+			setState(134);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(126); match(T__18);
-					setState(127); constantDefinition();
+					setState(130); match(T__18);
+					setState(131); constantDefinition();
 					}
 					} 
 				}
-				setState(132);
+				setState(136);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
@@ -396,9 +398,9 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(133); constantIdentifier();
-			setState(134); match(T__4);
-			setState(135); constant();
+			setState(137); constantIdentifier();
+			setState(138); match(T__4);
+			setState(139); constant();
 			}
 		}
 		catch (RecognitionException re) {
@@ -436,7 +438,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(137); match(IDENTIFIER);
+			setState(141); match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -485,7 +487,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 		enterRule(_localctx, 16, RULE_constant);
 		int _la;
 		try {
-			setState(148);
+			setState(152);
 			switch (_input.LA(1)) {
 			case T__3:
 			case T__1:
@@ -494,25 +496,25 @@ public class Spongebob_SquarepantsParser extends Parser {
 			case SPONGEBOB:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(140);
+				setState(144);
 				_la = _input.LA(1);
 				if (_la==T__3 || _la==T__1) {
 					{
-					setState(139); sign();
+					setState(143); sign();
 					}
 				}
 
-				setState(144);
+				setState(148);
 				switch (_input.LA(1)) {
 				case IDENTIFIER:
 					{
-					setState(142); match(IDENTIFIER);
+					setState(146); match(IDENTIFIER);
 					}
 					break;
 				case BUBBLEBUDDY:
 				case SPONGEBOB:
 					{
-					setState(143); unsignedNumber();
+					setState(147); unsignedNumber();
 					}
 					break;
 				default:
@@ -523,13 +525,13 @@ public class Spongebob_SquarepantsParser extends Parser {
 			case PLANKTON:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(146); characterConstant();
+				setState(150); characterConstant();
 				}
 				break;
 			case SQUIDWARD:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(147); stringConstant();
+				setState(151); stringConstant();
 				}
 				break;
 			default:
@@ -569,7 +571,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(150);
+			setState(154);
 			_la = _input.LA(1);
 			if ( !(_la==T__3 || _la==T__1) ) {
 			_errHandler.recoverInline(this);
@@ -613,8 +615,8 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(152); match(IMMAGOOFYGOOBER);
-			setState(153); variableDeclarationList();
+			setState(156); match(IMMAGOOFYGOOBER);
+			setState(157); variableDeclarationList();
 			}
 		}
 		catch (RecognitionException re) {
@@ -656,20 +658,20 @@ public class Spongebob_SquarepantsParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(155); variableDeclarations();
-			setState(160);
+			setState(159); variableDeclarations();
+			setState(164);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(156); match(T__18);
-					setState(157); variableDeclarations();
+					setState(160); match(T__18);
+					setState(161); variableDeclarations();
 					}
 					} 
 				}
-				setState(162);
+				setState(166);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,6,_ctx);
 			}
@@ -713,9 +715,9 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(163); variableIdentifierList();
-			setState(164); match(T__4);
-			setState(165); typeSpecification();
+			setState(167); variableIdentifierList();
+			setState(168); match(T__4);
+			setState(169); typeSpecification();
 			}
 		}
 		catch (RecognitionException re) {
@@ -757,18 +759,18 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(167); variableIdentifier();
-			setState(172);
+			setState(171); variableIdentifier();
+			setState(176);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__2) {
 				{
 				{
-				setState(168); match(T__2);
-				setState(169); variableIdentifier();
+				setState(172); match(T__2);
+				setState(173); variableIdentifier();
 				}
 				}
-				setState(174);
+				setState(178);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -809,7 +811,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(175); match(IDENTIFIER);
+			setState(179); match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -848,7 +850,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(177); simpleType();
+			setState(181); simpleType();
 			}
 		}
 		catch (RecognitionException re) {
@@ -864,20 +866,43 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public static class SimpleTypeContext extends ParserRuleContext {
 		public Typespec * type;
-		public TypeIdentifierContext typeIdentifier() {
-			return getRuleContext(TypeIdentifierContext.class,0);
-		}
 		public SimpleTypeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_simpleType; }
+	 
+		public SimpleTypeContext() { }
+		public void copyFrom(SimpleTypeContext ctx) {
+			super.copyFrom(ctx);
+			this.type = ctx.type;
+		}
+	}
+	public static class EnumerationTypespecContext extends SimpleTypeContext {
+		public EnumerationTypeContext enumerationType() {
+			return getRuleContext(EnumerationTypeContext.class,0);
+		}
+		public EnumerationTypespecContext(SimpleTypeContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).enterSimpleType(this);
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).enterEnumerationTypespec(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).exitSimpleType(this);
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).exitEnumerationTypespec(this);
+		}
+	}
+	public static class TypeIdentifierTypespecContext extends SimpleTypeContext {
+		public TypeIdentifierContext typeIdentifier() {
+			return getRuleContext(TypeIdentifierContext.class,0);
+		}
+		public TypeIdentifierTypespecContext(SimpleTypeContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).enterTypeIdentifierTypespec(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).exitTypeIdentifierTypespec(this);
 		}
 	}
 
@@ -885,9 +910,120 @@ public class Spongebob_SquarepantsParser extends Parser {
 		SimpleTypeContext _localctx = new SimpleTypeContext(_ctx, getState());
 		enterRule(_localctx, 32, RULE_simpleType);
 		try {
+			setState(185);
+			switch (_input.LA(1)) {
+			case IDENTIFIER:
+				_localctx = new TypeIdentifierTypespecContext(_localctx);
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(183); typeIdentifier();
+				}
+				break;
+			case TBUN:
+				_localctx = new EnumerationTypespecContext(_localctx);
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(184); enumerationType();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class EnumerationTypeContext extends ParserRuleContext {
+		public EnumerationConstantContext enumerationConstant(int i) {
+			return getRuleContext(EnumerationConstantContext.class,i);
+		}
+		public List<EnumerationConstantContext> enumerationConstant() {
+			return getRuleContexts(EnumerationConstantContext.class);
+		}
+		public EnumerationTypeContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_enumerationType; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).enterEnumerationType(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).exitEnumerationType(this);
+		}
+	}
+
+	public final EnumerationTypeContext enumerationType() throws RecognitionException {
+		EnumerationTypeContext _localctx = new EnumerationTypeContext(_ctx, getState());
+		enterRule(_localctx, 34, RULE_enumerationType);
+		int _la;
+		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(179); typeIdentifier();
+			setState(187); match(TBUN);
+			setState(188); enumerationConstant();
+			setState(193);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==T__2) {
+				{
+				{
+				setState(189); match(T__2);
+				setState(190); enumerationConstant();
+				}
+				}
+				setState(195);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(196); match(BBUN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class EnumerationConstantContext extends ParserRuleContext {
+		public ConstantIdentifierContext constantIdentifier() {
+			return getRuleContext(ConstantIdentifierContext.class,0);
+		}
+		public EnumerationConstantContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_enumerationConstant; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).enterEnumerationConstant(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Spongebob_SquarepantsListener ) ((Spongebob_SquarepantsListener)listener).exitEnumerationConstant(this);
+		}
+	}
+
+	public final EnumerationConstantContext enumerationConstant() throws RecognitionException {
+		EnumerationConstantContext _localctx = new EnumerationConstantContext(_ctx, getState());
+		enterRule(_localctx, 36, RULE_enumerationConstant);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(198); constantIdentifier();
 			}
 		}
 		catch (RecognitionException re) {
@@ -920,11 +1056,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final TypeIdentifierContext typeIdentifier() throws RecognitionException {
 		TypeIdentifierContext _localctx = new TypeIdentifierContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_typeIdentifier);
+		enterRule(_localctx, 38, RULE_typeIdentifier);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(181); match(IDENTIFIER);
+			setState(200); match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -976,44 +1112,44 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final StatementContext statement() throws RecognitionException {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_statement);
+		enterRule(_localctx, 40, RULE_statement);
 		try {
-			setState(190);
+			setState(209);
 			switch (_input.LA(1)) {
 			case ANETERNITYLATER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(183); compoundStatement();
+				setState(202); compoundStatement();
 				}
 				break;
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(184); assignmentStatement();
+				setState(203); assignmentStatement();
 				}
 				break;
 			case FISFORFRIENDS:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(185); ifStatement();
+				setState(204); ifStatement();
 				}
 				break;
 			case RAVIOLIRAVIOLIGIVEME:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(186); whileStatement();
+				setState(205); whileStatement();
 				}
 				break;
 			case ORDERUP:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(187); writeStatement();
+				setState(206); writeStatement();
 				}
 				break;
 			case YOUFORGOTTHEPICKLES:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(188); writelnStatement();
+				setState(207); writelnStatement();
 				}
 				break;
 			case T__18:
@@ -1021,7 +1157,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 			case FISFORFIRE:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(189); emptyStatement();
+				setState(208); emptyStatement();
 				}
 				break;
 			default:
@@ -1061,13 +1197,13 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final CompoundStatementContext compoundStatement() throws RecognitionException {
 		CompoundStatementContext _localctx = new CompoundStatementContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_compoundStatement);
+		enterRule(_localctx, 42, RULE_compoundStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(192); match(ANETERNITYLATER);
-			setState(193); statementlist();
-			setState(194); match(GOODBYEFRIEND);
+			setState(211); match(ANETERNITYLATER);
+			setState(212); statementlist();
+			setState(213); match(GOODBYEFRIEND);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1098,7 +1234,7 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final EmptyStatementContext emptyStatement() throws RecognitionException {
 		EmptyStatementContext _localctx = new EmptyStatementContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_emptyStatement);
+		enterRule(_localctx, 44, RULE_emptyStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -1138,23 +1274,23 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final StatementlistContext statementlist() throws RecognitionException {
 		StatementlistContext _localctx = new StatementlistContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_statementlist);
+		enterRule(_localctx, 46, RULE_statementlist);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(198); statement();
-			setState(203);
+			setState(217); statement();
+			setState(222);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__18) {
 				{
 				{
-				setState(199); match(T__18);
-				setState(200); statement();
+				setState(218); match(T__18);
+				setState(219); statement();
 				}
 				}
-				setState(205);
+				setState(224);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1194,13 +1330,13 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final AssignmentStatementContext assignmentStatement() throws RecognitionException {
 		AssignmentStatementContext _localctx = new AssignmentStatementContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_assignmentStatement);
+		enterRule(_localctx, 48, RULE_assignmentStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(206); lhs();
-			setState(207); match(T__4);
-			setState(208); rhs();
+			setState(225); lhs();
+			setState(226); match(T__4);
+			setState(227); rhs();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1235,11 +1371,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final LhsContext lhs() throws RecognitionException {
 		LhsContext _localctx = new LhsContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_lhs);
+		enterRule(_localctx, 50, RULE_lhs);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(210); variable();
+			setState(229); variable();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1273,11 +1409,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final RhsContext rhs() throws RecognitionException {
 		RhsContext _localctx = new RhsContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_rhs);
+		enterRule(_localctx, 52, RULE_rhs);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(212); expression();
+			setState(231); expression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1321,21 +1457,21 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
 		IfStatementContext _localctx = new IfStatementContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_ifStatement);
+		enterRule(_localctx, 54, RULE_ifStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(214); match(FISFORFRIENDS);
-			setState(215); match(TBUN);
-			setState(216); expression();
-			setState(217); match(BBUN);
-			setState(218); truestatement();
-			setState(221);
-			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
+			setState(233); match(FISFORFRIENDS);
+			setState(234); match(TBUN);
+			setState(235); expression();
+			setState(236); match(BBUN);
+			setState(237); truestatement();
+			setState(240);
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(219); match(FISFORFIRE);
-				setState(220); falsestatement();
+				setState(238); match(FISFORFIRE);
+				setState(239); falsestatement();
 				}
 				break;
 			}
@@ -1372,11 +1508,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final TruestatementContext truestatement() throws RecognitionException {
 		TruestatementContext _localctx = new TruestatementContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_truestatement);
+		enterRule(_localctx, 56, RULE_truestatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(223); statement();
+			setState(242); statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1410,11 +1546,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final FalsestatementContext falsestatement() throws RecognitionException {
 		FalsestatementContext _localctx = new FalsestatementContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_falsestatement);
+		enterRule(_localctx, 58, RULE_falsestatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(225); statement();
+			setState(244); statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1453,14 +1589,14 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final WhileStatementContext whileStatement() throws RecognitionException {
 		WhileStatementContext _localctx = new WhileStatementContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_whileStatement);
+		enterRule(_localctx, 60, RULE_whileStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(227); match(RAVIOLIRAVIOLIGIVEME);
-			setState(228); expression();
-			setState(229); match(THEFORMULOLI);
-			setState(230); statement();
+			setState(246); match(RAVIOLIRAVIOLIGIVEME);
+			setState(247); expression();
+			setState(248); match(THEFORMULOLI);
+			setState(249); statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1497,15 +1633,15 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final WriteStatementContext writeStatement() throws RecognitionException {
 		WriteStatementContext _localctx = new WriteStatementContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_writeStatement);
+		enterRule(_localctx, 62, RULE_writeStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(232); match(ORDERUP);
-			setState(233); match(TBUN);
-			setState(234); writeArguments();
-			setState(235); match(BBUN);
-			setState(236); match(T__18);
+			setState(251); match(ORDERUP);
+			setState(252); match(TBUN);
+			setState(253); writeArguments();
+			setState(254); match(BBUN);
+			setState(255); match(T__18);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1543,16 +1679,16 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final WritelnStatementContext writelnStatement() throws RecognitionException {
 		WritelnStatementContext _localctx = new WritelnStatementContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_writelnStatement);
+		enterRule(_localctx, 64, RULE_writelnStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(238); match(YOUFORGOTTHEPICKLES);
-			setState(239); match(TBUN);
-			setState(240); writeArguments();
-			setState(241); match(BBUN);
-			setState(242); match(T__18);
-			setState(243); match(MAGICCONCH);
+			setState(257); match(YOUFORGOTTHEPICKLES);
+			setState(258); match(TBUN);
+			setState(259); writeArguments();
+			setState(260); match(BBUN);
+			setState(261); match(T__18);
+			setState(262); match(MAGICCONCH);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1589,23 +1725,23 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final WriteArgumentsContext writeArguments() throws RecognitionException {
 		WriteArgumentsContext _localctx = new WriteArgumentsContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_writeArguments);
+		enterRule(_localctx, 66, RULE_writeArguments);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(245); writeArgument();
-			setState(250);
+			setState(264); writeArgument();
+			setState(269);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__2) {
 				{
 				{
-				setState(246); match(T__2);
-				setState(247); writeArgument();
+				setState(265); match(T__2);
+				setState(266); writeArgument();
 				}
 				}
-				setState(252);
+				setState(271);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1642,11 +1778,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final WriteArgumentContext writeArgument() throws RecognitionException {
 		WriteArgumentContext _localctx = new WriteArgumentContext(_ctx, getState());
-		enterRule(_localctx, 64, RULE_writeArgument);
+		enterRule(_localctx, 68, RULE_writeArgument);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(253); expression();
+			setState(272); expression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1687,18 +1823,18 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final ExpressionContext expression() throws RecognitionException {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_expression);
+		enterRule(_localctx, 70, RULE_expression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(255); simpleExpression();
-			setState(259);
+			setState(274); simpleExpression();
+			setState(278);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__16) | (1L << T__15) | (1L << T__13) | (1L << T__12) | (1L << T__10) | (1L << T__9))) != 0)) {
 				{
-				setState(256); relOp();
-				setState(257); simpleExpression();
+				setState(275); relOp();
+				setState(276); simpleExpression();
 				}
 			}
 
@@ -1748,31 +1884,31 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final SimpleExpressionContext simpleExpression() throws RecognitionException {
 		SimpleExpressionContext _localctx = new SimpleExpressionContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_simpleExpression);
+		enterRule(_localctx, 72, RULE_simpleExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(262);
+			setState(281);
 			_la = _input.LA(1);
 			if (_la==T__3 || _la==T__1) {
 				{
-				setState(261); sign();
+				setState(280); sign();
 				}
 			}
 
-			setState(264); term();
-			setState(270);
+			setState(283); term();
+			setState(289);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__17) | (1L << T__7) | (1L << OR))) != 0)) {
 				{
 				{
-				setState(265); addOp();
-				setState(266); term();
+				setState(284); addOp();
+				setState(285); term();
 				}
 				}
-				setState(272);
+				setState(291);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1819,23 +1955,23 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final TermContext term() throws RecognitionException {
 		TermContext _localctx = new TermContext(_ctx, getState());
-		enterRule(_localctx, 70, RULE_term);
+		enterRule(_localctx, 74, RULE_term);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(273); factor();
-			setState(279);
+			setState(292); factor();
+			setState(298);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__6) | (1L << T__5) | (1L << AND))) != 0)) {
 				{
 				{
-				setState(274); mulOp();
-				setState(275); factor();
+				setState(293); mulOp();
+				setState(294); factor();
 				}
 				}
-				setState(281);
+				setState(300);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1889,48 +2025,48 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final FactorContext factor() throws RecognitionException {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
-		enterRule(_localctx, 72, RULE_factor);
+		enterRule(_localctx, 76, RULE_factor);
 		try {
-			setState(292);
+			setState(311);
 			switch (_input.LA(1)) {
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(282); variable();
+				setState(301); variable();
 				}
 				break;
 			case BUBBLEBUDDY:
 			case SPONGEBOB:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(283); number();
+				setState(302); number();
 				}
 				break;
 			case PLANKTON:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(284); characterConstant();
+				setState(303); characterConstant();
 				}
 				break;
 			case SQUIDWARD:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(285); stringConstant();
+				setState(304); stringConstant();
 				}
 				break;
 			case DOODLEBOB:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(286); match(DOODLEBOB);
-				setState(287); factor();
+				setState(305); match(DOODLEBOB);
+				setState(306); factor();
 				}
 				break;
 			case TBUN:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(288); match(TBUN);
-				setState(289); expression();
-				setState(290); match(BBUN);
+				setState(307); match(TBUN);
+				setState(308); expression();
+				setState(309); match(BBUN);
 				}
 				break;
 			default:
@@ -1976,22 +2112,22 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final VariableContext variable() throws RecognitionException {
 		VariableContext _localctx = new VariableContext(_ctx, getState());
-		enterRule(_localctx, 74, RULE_variable);
+		enterRule(_localctx, 78, RULE_variable);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(294); variableIdentifier();
-			setState(298);
+			setState(313); variableIdentifier();
+			setState(317);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__14 || _la==T__0) {
 				{
 				{
-				setState(295); modifier();
+				setState(314); modifier();
 				}
 				}
-				setState(300);
+				setState(319);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -2031,23 +2167,23 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final ModifierContext modifier() throws RecognitionException {
 		ModifierContext _localctx = new ModifierContext(_ctx, getState());
-		enterRule(_localctx, 76, RULE_modifier);
+		enterRule(_localctx, 80, RULE_modifier);
 		try {
-			setState(307);
+			setState(326);
 			switch (_input.LA(1)) {
 			case T__14:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(301); match(T__14);
-				setState(302); indexList();
-				setState(303); match(T__11);
+				setState(320); match(T__14);
+				setState(321); indexList();
+				setState(322); match(T__11);
 				}
 				break;
 			case T__0:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(305); match(T__0);
-				setState(306); field();
+				setState(324); match(T__0);
+				setState(325); field();
 				}
 				break;
 			default:
@@ -2088,23 +2224,23 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final IndexListContext indexList() throws RecognitionException {
 		IndexListContext _localctx = new IndexListContext(_ctx, getState());
-		enterRule(_localctx, 78, RULE_indexList);
+		enterRule(_localctx, 82, RULE_indexList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(309); index();
-			setState(314);
+			setState(328); index();
+			setState(333);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__2) {
 				{
 				{
-				setState(310); match(T__2);
-				setState(311); index();
+				setState(329); match(T__2);
+				setState(330); index();
 				}
 				}
-				setState(316);
+				setState(335);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -2141,11 +2277,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final IndexContext index() throws RecognitionException {
 		IndexContext _localctx = new IndexContext(_ctx, getState());
-		enterRule(_localctx, 80, RULE_index);
+		enterRule(_localctx, 84, RULE_index);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(317); expression();
+			setState(336); expression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2179,11 +2315,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final FieldContext field() throws RecognitionException {
 		FieldContext _localctx = new FieldContext(_ctx, getState());
-		enterRule(_localctx, 82, RULE_field);
+		enterRule(_localctx, 86, RULE_field);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(319); match(IDENTIFIER);
+			setState(338); match(IDENTIFIER);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2217,11 +2353,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final NumberContext number() throws RecognitionException {
 		NumberContext _localctx = new NumberContext(_ctx, getState());
-		enterRule(_localctx, 84, RULE_number);
+		enterRule(_localctx, 88, RULE_number);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(321); unsignedNumber();
+			setState(340); unsignedNumber();
 			}
 		}
 		catch (RecognitionException re) {
@@ -2258,20 +2394,20 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final UnsignedNumberContext unsignedNumber() throws RecognitionException {
 		UnsignedNumberContext _localctx = new UnsignedNumberContext(_ctx, getState());
-		enterRule(_localctx, 86, RULE_unsignedNumber);
+		enterRule(_localctx, 90, RULE_unsignedNumber);
 		try {
-			setState(325);
+			setState(344);
 			switch (_input.LA(1)) {
 			case BUBBLEBUDDY:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(323); integerConstant();
+				setState(342); integerConstant();
 				}
 				break;
 			case SPONGEBOB:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(324); realConstant();
+				setState(343); realConstant();
 				}
 				break;
 			default:
@@ -2307,11 +2443,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final IntegerConstantContext integerConstant() throws RecognitionException {
 		IntegerConstantContext _localctx = new IntegerConstantContext(_ctx, getState());
-		enterRule(_localctx, 88, RULE_integerConstant);
+		enterRule(_localctx, 92, RULE_integerConstant);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(327); match(BUBBLEBUDDY);
+			setState(346); match(BUBBLEBUDDY);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2343,11 +2479,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final RealConstantContext realConstant() throws RecognitionException {
 		RealConstantContext _localctx = new RealConstantContext(_ctx, getState());
-		enterRule(_localctx, 90, RULE_realConstant);
+		enterRule(_localctx, 94, RULE_realConstant);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(329); match(SPONGEBOB);
+			setState(348); match(SPONGEBOB);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2379,11 +2515,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final CharacterConstantContext characterConstant() throws RecognitionException {
 		CharacterConstantContext _localctx = new CharacterConstantContext(_ctx, getState());
-		enterRule(_localctx, 92, RULE_characterConstant);
+		enterRule(_localctx, 96, RULE_characterConstant);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(331); match(PLANKTON);
+			setState(350); match(PLANKTON);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2415,11 +2551,11 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final StringConstantContext stringConstant() throws RecognitionException {
 		StringConstantContext _localctx = new StringConstantContext(_ctx, getState());
-		enterRule(_localctx, 94, RULE_stringConstant);
+		enterRule(_localctx, 98, RULE_stringConstant);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(333); match(SQUIDWARD);
+			setState(352); match(SQUIDWARD);
 			}
 		}
 		catch (RecognitionException re) {
@@ -2450,12 +2586,12 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final RelOpContext relOp() throws RecognitionException {
 		RelOpContext _localctx = new RelOpContext(_ctx, getState());
-		enterRule(_localctx, 96, RULE_relOp);
+		enterRule(_localctx, 100, RULE_relOp);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(335);
+			setState(354);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__16) | (1L << T__15) | (1L << T__13) | (1L << T__12) | (1L << T__10) | (1L << T__9))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -2492,12 +2628,12 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final AddOpContext addOp() throws RecognitionException {
 		AddOpContext _localctx = new AddOpContext(_ctx, getState());
-		enterRule(_localctx, 98, RULE_addOp);
+		enterRule(_localctx, 102, RULE_addOp);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(337);
+			setState(356);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__17) | (1L << T__7) | (1L << OR))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -2534,12 +2670,12 @@ public class Spongebob_SquarepantsParser extends Parser {
 
 	public final MulOpContext mulOp() throws RecognitionException {
 		MulOpContext _localctx = new MulOpContext(_ctx, getState());
-		enterRule(_localctx, 100, RULE_mulOp);
+		enterRule(_localctx, 104, RULE_mulOp);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(339);
+			setState(358);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__6) | (1L << T__5) | (1L << AND))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -2559,114 +2695,122 @@ public class Spongebob_SquarepantsParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3/\u0158\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3/\u016b\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
 		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
 		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
 		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64\t"+
-		"\64\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3\5\3\5\5\5v\n\5\3\5\3"+
-		"\5\3\5\5\5{\n\5\3\6\3\6\3\6\3\7\3\7\3\7\7\7\u0083\n\7\f\7\16\7\u0086\13"+
-		"\7\3\b\3\b\3\b\3\b\3\t\3\t\3\n\5\n\u008f\n\n\3\n\3\n\5\n\u0093\n\n\3\n"+
-		"\3\n\5\n\u0097\n\n\3\13\3\13\3\f\3\f\3\f\3\r\3\r\3\r\7\r\u00a1\n\r\f\r"+
-		"\16\r\u00a4\13\r\3\16\3\16\3\16\3\16\3\17\3\17\3\17\7\17\u00ad\n\17\f"+
-		"\17\16\17\u00b0\13\17\3\20\3\20\3\21\3\21\3\22\3\22\3\23\3\23\3\24\3\24"+
-		"\3\24\3\24\3\24\3\24\3\24\5\24\u00c1\n\24\3\25\3\25\3\25\3\25\3\26\3\26"+
-		"\3\27\3\27\3\27\7\27\u00cc\n\27\f\27\16\27\u00cf\13\27\3\30\3\30\3\30"+
-		"\3\30\3\31\3\31\3\32\3\32\3\33\3\33\3\33\3\33\3\33\3\33\3\33\5\33\u00e0"+
-		"\n\33\3\34\3\34\3\35\3\35\3\36\3\36\3\36\3\36\3\36\3\37\3\37\3\37\3\37"+
-		"\3\37\3\37\3 \3 \3 \3 \3 \3 \3 \3!\3!\3!\7!\u00fb\n!\f!\16!\u00fe\13!"+
-		"\3\"\3\"\3#\3#\3#\3#\5#\u0106\n#\3$\5$\u0109\n$\3$\3$\3$\3$\7$\u010f\n"+
-		"$\f$\16$\u0112\13$\3%\3%\3%\3%\7%\u0118\n%\f%\16%\u011b\13%\3&\3&\3&\3"+
-		"&\3&\3&\3&\3&\3&\3&\5&\u0127\n&\3\'\3\'\7\'\u012b\n\'\f\'\16\'\u012e\13"+
-		"\'\3(\3(\3(\3(\3(\3(\5(\u0136\n(\3)\3)\3)\7)\u013b\n)\f)\16)\u013e\13"+
-		")\3*\3*\3+\3+\3,\3,\3-\3-\5-\u0148\n-\3.\3.\3/\3/\3\60\3\60\3\61\3\61"+
-		"\3\62\3\62\3\63\3\63\3\64\3\64\3\64\2\2\65\2\4\6\b\n\f\16\20\22\24\26"+
-		"\30\32\34\36 \"$&(*,.\60\62\64\668:<>@BDFHJLNPRTVXZ\\^`bdf\2\6\4\2\22"+
-		"\22\24\24\5\2\5\6\b\t\13\f\5\2\4\4\16\16##\4\2\17\20$$\u0143\2h\3\2\2"+
-		"\2\4l\3\2\2\2\6o\3\2\2\2\bu\3\2\2\2\n|\3\2\2\2\f\177\3\2\2\2\16\u0087"+
-		"\3\2\2\2\20\u008b\3\2\2\2\22\u0096\3\2\2\2\24\u0098\3\2\2\2\26\u009a\3"+
-		"\2\2\2\30\u009d\3\2\2\2\32\u00a5\3\2\2\2\34\u00a9\3\2\2\2\36\u00b1\3\2"+
-		"\2\2 \u00b3\3\2\2\2\"\u00b5\3\2\2\2$\u00b7\3\2\2\2&\u00c0\3\2\2\2(\u00c2"+
-		"\3\2\2\2*\u00c6\3\2\2\2,\u00c8\3\2\2\2.\u00d0\3\2\2\2\60\u00d4\3\2\2\2"+
-		"\62\u00d6\3\2\2\2\64\u00d8\3\2\2\2\66\u00e1\3\2\2\28\u00e3\3\2\2\2:\u00e5"+
-		"\3\2\2\2<\u00ea\3\2\2\2>\u00f0\3\2\2\2@\u00f7\3\2\2\2B\u00ff\3\2\2\2D"+
-		"\u0101\3\2\2\2F\u0108\3\2\2\2H\u0113\3\2\2\2J\u0126\3\2\2\2L\u0128\3\2"+
-		"\2\2N\u0135\3\2\2\2P\u0137\3\2\2\2R\u013f\3\2\2\2T\u0141\3\2\2\2V\u0143"+
-		"\3\2\2\2X\u0147\3\2\2\2Z\u0149\3\2\2\2\\\u014b\3\2\2\2^\u014d\3\2\2\2"+
-		"`\u014f\3\2\2\2b\u0151\3\2\2\2d\u0153\3\2\2\2f\u0155\3\2\2\2hi\5\4\3\2"+
-		"ij\5\6\4\2jk\7\r\2\2k\3\3\2\2\2lm\7\26\2\2mn\7\3\2\2n\5\3\2\2\2op\5\b"+
-		"\5\2pq\5(\25\2q\7\3\2\2\2rs\5\n\6\2st\7\3\2\2tv\3\2\2\2ur\3\2\2\2uv\3"+
-		"\2\2\2vz\3\2\2\2wx\5\26\f\2xy\7\3\2\2y{\3\2\2\2zw\3\2\2\2z{\3\2\2\2{\t"+
-		"\3\2\2\2|}\7\27\2\2}~\5\f\7\2~\13\3\2\2\2\177\u0084\5\16\b\2\u0080\u0081"+
-		"\7\3\2\2\u0081\u0083\5\16\b\2\u0082\u0080\3\2\2\2\u0083\u0086\3\2\2\2"+
-		"\u0084\u0082\3\2\2\2\u0084\u0085\3\2\2\2\u0085\r\3\2\2\2\u0086\u0084\3"+
-		"\2\2\2\u0087\u0088\5\20\t\2\u0088\u0089\7\21\2\2\u0089\u008a\5\22\n\2"+
-		"\u008a\17\3\2\2\2\u008b\u008c\7(\2\2\u008c\21\3\2\2\2\u008d\u008f\5\24"+
-		"\13\2\u008e\u008d\3\2\2\2\u008e\u008f\3\2\2\2\u008f\u0092\3\2\2\2\u0090"+
-		"\u0093\7(\2\2\u0091\u0093\5X-\2\u0092\u0090\3\2\2\2\u0092\u0091\3\2\2"+
-		"\2\u0093\u0097\3\2\2\2\u0094\u0097\5^\60\2\u0095\u0097\5`\61\2\u0096\u008e"+
-		"\3\2\2\2\u0096\u0094\3\2\2\2\u0096\u0095\3\2\2\2\u0097\23\3\2\2\2\u0098"+
-		"\u0099\t\2\2\2\u0099\25\3\2\2\2\u009a\u009b\7\"\2\2\u009b\u009c\5\30\r"+
-		"\2\u009c\27\3\2\2\2\u009d\u00a2\5\32\16\2\u009e\u009f\7\3\2\2\u009f\u00a1"+
-		"\5\32\16\2\u00a0\u009e\3\2\2\2\u00a1\u00a4\3\2\2\2\u00a2\u00a0\3\2\2\2"+
-		"\u00a2\u00a3\3\2\2\2\u00a3\31\3\2\2\2\u00a4\u00a2\3\2\2\2\u00a5\u00a6"+
-		"\5\34\17\2\u00a6\u00a7\7\21\2\2\u00a7\u00a8\5 \21\2\u00a8\33\3\2\2\2\u00a9"+
-		"\u00ae\5\36\20\2\u00aa\u00ab\7\23\2\2\u00ab\u00ad\5\36\20\2\u00ac\u00aa"+
-		"\3\2\2\2\u00ad\u00b0\3\2\2\2\u00ae\u00ac\3\2\2\2\u00ae\u00af\3\2\2\2\u00af"+
-		"\35\3\2\2\2\u00b0\u00ae\3\2\2\2\u00b1\u00b2\7(\2\2\u00b2\37\3\2\2\2\u00b3"+
-		"\u00b4\5\"\22\2\u00b4!\3\2\2\2\u00b5\u00b6\5$\23\2\u00b6#\3\2\2\2\u00b7"+
-		"\u00b8\7(\2\2\u00b8%\3\2\2\2\u00b9\u00c1\5(\25\2\u00ba\u00c1\5.\30\2\u00bb"+
-		"\u00c1\5\64\33\2\u00bc\u00c1\5:\36\2\u00bd\u00c1\5<\37\2\u00be\u00c1\5"+
-		"> \2\u00bf\u00c1\5*\26\2\u00c0\u00b9\3\2\2\2\u00c0\u00ba\3\2\2\2\u00c0"+
-		"\u00bb\3\2\2\2\u00c0\u00bc\3\2\2\2\u00c0\u00bd\3\2\2\2\u00c0\u00be\3\2"+
-		"\2\2\u00c0\u00bf\3\2\2\2\u00c1\'\3\2\2\2\u00c2\u00c3\7\30\2\2\u00c3\u00c4"+
-		"\5,\27\2\u00c4\u00c5\7\31\2\2\u00c5)\3\2\2\2\u00c6\u00c7\3\2\2\2\u00c7"+
-		"+\3\2\2\2\u00c8\u00cd\5&\24\2\u00c9\u00ca\7\3\2\2\u00ca\u00cc\5&\24\2"+
-		"\u00cb\u00c9\3\2\2\2\u00cc\u00cf\3\2\2\2\u00cd\u00cb\3\2\2\2\u00cd\u00ce"+
-		"\3\2\2\2\u00ce-\3\2\2\2\u00cf\u00cd\3\2\2\2\u00d0\u00d1\5\60\31\2\u00d1"+
-		"\u00d2\7\21\2\2\u00d2\u00d3\5\62\32\2\u00d3/\3\2\2\2\u00d4\u00d5\5L\'"+
-		"\2\u00d5\61\3\2\2\2\u00d6\u00d7\5D#\2\u00d7\63\3\2\2\2\u00d8\u00d9\7\32"+
-		"\2\2\u00d9\u00da\7%\2\2\u00da\u00db\5D#\2\u00db\u00dc\7&\2\2\u00dc\u00df"+
-		"\5\66\34\2\u00dd\u00de\7\33\2\2\u00de\u00e0\58\35\2\u00df\u00dd\3\2\2"+
-		"\2\u00df\u00e0\3\2\2\2\u00e0\65\3\2\2\2\u00e1\u00e2\5&\24\2\u00e2\67\3"+
-		"\2\2\2\u00e3\u00e4\5&\24\2\u00e49\3\2\2\2\u00e5\u00e6\7\34\2\2\u00e6\u00e7"+
-		"\5D#\2\u00e7\u00e8\7\35\2\2\u00e8\u00e9\5&\24\2\u00e9;\3\2\2\2\u00ea\u00eb"+
-		"\7\37\2\2\u00eb\u00ec\7%\2\2\u00ec\u00ed\5@!\2\u00ed\u00ee\7&\2\2\u00ee"+
-		"\u00ef\7\3\2\2\u00ef=\3\2\2\2\u00f0\u00f1\7 \2\2\u00f1\u00f2\7%\2\2\u00f2"+
-		"\u00f3\5@!\2\u00f3\u00f4\7&\2\2\u00f4\u00f5\7\3\2\2\u00f5\u00f6\7.\2\2"+
-		"\u00f6?\3\2\2\2\u00f7\u00fc\5B\"\2\u00f8\u00f9\7\23\2\2\u00f9\u00fb\5"+
-		"B\"\2\u00fa\u00f8\3\2\2\2\u00fb\u00fe\3\2\2\2\u00fc\u00fa\3\2\2\2\u00fc"+
-		"\u00fd\3\2\2\2\u00fdA\3\2\2\2\u00fe\u00fc\3\2\2\2\u00ff\u0100\5D#\2\u0100"+
-		"C\3\2\2\2\u0101\u0105\5F$\2\u0102\u0103\5b\62\2\u0103\u0104\5F$\2\u0104"+
-		"\u0106\3\2\2\2\u0105\u0102\3\2\2\2\u0105\u0106\3\2\2\2\u0106E\3\2\2\2"+
-		"\u0107\u0109\5\24\13\2\u0108\u0107\3\2\2\2\u0108\u0109\3\2\2\2\u0109\u010a"+
-		"\3\2\2\2\u010a\u0110\5H%\2\u010b\u010c\5d\63\2\u010c\u010d\5H%\2\u010d"+
-		"\u010f\3\2\2\2\u010e\u010b\3\2\2\2\u010f\u0112\3\2\2\2\u0110\u010e\3\2"+
-		"\2\2\u0110\u0111\3\2\2\2\u0111G\3\2\2\2\u0112\u0110\3\2\2\2\u0113\u0119"+
-		"\5J&\2\u0114\u0115\5f\64\2\u0115\u0116\5J&\2\u0116\u0118\3\2\2\2\u0117"+
-		"\u0114\3\2\2\2\u0118\u011b\3\2\2\2\u0119\u0117\3\2\2\2\u0119\u011a\3\2"+
-		"\2\2\u011aI\3\2\2\2\u011b\u0119\3\2\2\2\u011c\u0127\5L\'\2\u011d\u0127"+
-		"\5V,\2\u011e\u0127\5^\60\2\u011f\u0127\5`\61\2\u0120\u0121\7!\2\2\u0121"+
-		"\u0127\5J&\2\u0122\u0123\7%\2\2\u0123\u0124\5D#\2\u0124\u0125\7&\2\2\u0125"+
-		"\u0127\3\2\2\2\u0126\u011c\3\2\2\2\u0126\u011d\3\2\2\2\u0126\u011e\3\2"+
-		"\2\2\u0126\u011f\3\2\2\2\u0126\u0120\3\2\2\2\u0126\u0122\3\2\2\2\u0127"+
-		"K\3\2\2\2\u0128\u012c\5\36\20\2\u0129\u012b\5N(\2\u012a\u0129\3\2\2\2"+
-		"\u012b\u012e\3\2\2\2\u012c\u012a\3\2\2\2\u012c\u012d\3\2\2\2\u012dM\3"+
-		"\2\2\2\u012e\u012c\3\2\2\2\u012f\u0130\7\7\2\2\u0130\u0131\5P)\2\u0131"+
-		"\u0132\7\n\2\2\u0132\u0136\3\2\2\2\u0133\u0134\7\25\2\2\u0134\u0136\5"+
-		"T+\2\u0135\u012f\3\2\2\2\u0135\u0133\3\2\2\2\u0136O\3\2\2\2\u0137\u013c"+
-		"\5R*\2\u0138\u0139\7\23\2\2\u0139\u013b\5R*\2\u013a\u0138\3\2\2\2\u013b"+
-		"\u013e\3\2\2\2\u013c\u013a\3\2\2\2\u013c\u013d\3\2\2\2\u013dQ\3\2\2\2"+
-		"\u013e\u013c\3\2\2\2\u013f\u0140\5D#\2\u0140S\3\2\2\2\u0141\u0142\7(\2"+
-		"\2\u0142U\3\2\2\2\u0143\u0144\5X-\2\u0144W\3\2\2\2\u0145\u0148\5Z.\2\u0146"+
-		"\u0148\5\\/\2\u0147\u0145\3\2\2\2\u0147\u0146\3\2\2\2\u0148Y\3\2\2\2\u0149"+
-		"\u014a\7)\2\2\u014a[\3\2\2\2\u014b\u014c\7*\2\2\u014c]\3\2\2\2\u014d\u014e"+
-		"\7,\2\2\u014e_\3\2\2\2\u014f\u0150\7-\2\2\u0150a\3\2\2\2\u0151\u0152\t"+
-		"\3\2\2\u0152c\3\2\2\2\u0153\u0154\t\4\2\2\u0154e\3\2\2\2\u0155\u0156\t"+
-		"\5\2\2\u0156g\3\2\2\2\27uz\u0084\u008e\u0092\u0096\u00a2\u00ae\u00c0\u00cd"+
-		"\u00df\u00fc\u0105\u0108\u0110\u0119\u0126\u012c\u0135\u013c\u0147";
+		"\64\4\65\t\65\4\66\t\66\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\5\3"+
+		"\5\3\5\5\5z\n\5\3\5\3\5\3\5\5\5\177\n\5\3\6\3\6\3\6\3\7\3\7\3\7\7\7\u0087"+
+		"\n\7\f\7\16\7\u008a\13\7\3\b\3\b\3\b\3\b\3\t\3\t\3\n\5\n\u0093\n\n\3\n"+
+		"\3\n\5\n\u0097\n\n\3\n\3\n\5\n\u009b\n\n\3\13\3\13\3\f\3\f\3\f\3\r\3\r"+
+		"\3\r\7\r\u00a5\n\r\f\r\16\r\u00a8\13\r\3\16\3\16\3\16\3\16\3\17\3\17\3"+
+		"\17\7\17\u00b1\n\17\f\17\16\17\u00b4\13\17\3\20\3\20\3\21\3\21\3\22\3"+
+		"\22\5\22\u00bc\n\22\3\23\3\23\3\23\3\23\7\23\u00c2\n\23\f\23\16\23\u00c5"+
+		"\13\23\3\23\3\23\3\24\3\24\3\25\3\25\3\26\3\26\3\26\3\26\3\26\3\26\3\26"+
+		"\5\26\u00d4\n\26\3\27\3\27\3\27\3\27\3\30\3\30\3\31\3\31\3\31\7\31\u00df"+
+		"\n\31\f\31\16\31\u00e2\13\31\3\32\3\32\3\32\3\32\3\33\3\33\3\34\3\34\3"+
+		"\35\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u00f3\n\35\3\36\3\36\3\37\3\37"+
+		"\3 \3 \3 \3 \3 \3!\3!\3!\3!\3!\3!\3\"\3\"\3\"\3\"\3\"\3\"\3\"\3#\3#\3"+
+		"#\7#\u010e\n#\f#\16#\u0111\13#\3$\3$\3%\3%\3%\3%\5%\u0119\n%\3&\5&\u011c"+
+		"\n&\3&\3&\3&\3&\7&\u0122\n&\f&\16&\u0125\13&\3\'\3\'\3\'\3\'\7\'\u012b"+
+		"\n\'\f\'\16\'\u012e\13\'\3(\3(\3(\3(\3(\3(\3(\3(\3(\3(\5(\u013a\n(\3)"+
+		"\3)\7)\u013e\n)\f)\16)\u0141\13)\3*\3*\3*\3*\3*\3*\5*\u0149\n*\3+\3+\3"+
+		"+\7+\u014e\n+\f+\16+\u0151\13+\3,\3,\3-\3-\3.\3.\3/\3/\5/\u015b\n/\3\60"+
+		"\3\60\3\61\3\61\3\62\3\62\3\63\3\63\3\64\3\64\3\65\3\65\3\66\3\66\3\66"+
+		"\2\2\67\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:"+
+		"<>@BDFHJLNPRTVXZ\\^`bdfhj\2\6\4\2\22\22\24\24\5\2\5\6\b\t\13\f\5\2\4\4"+
+		"\16\16##\4\2\17\20$$\u0156\2l\3\2\2\2\4p\3\2\2\2\6s\3\2\2\2\by\3\2\2\2"+
+		"\n\u0080\3\2\2\2\f\u0083\3\2\2\2\16\u008b\3\2\2\2\20\u008f\3\2\2\2\22"+
+		"\u009a\3\2\2\2\24\u009c\3\2\2\2\26\u009e\3\2\2\2\30\u00a1\3\2\2\2\32\u00a9"+
+		"\3\2\2\2\34\u00ad\3\2\2\2\36\u00b5\3\2\2\2 \u00b7\3\2\2\2\"\u00bb\3\2"+
+		"\2\2$\u00bd\3\2\2\2&\u00c8\3\2\2\2(\u00ca\3\2\2\2*\u00d3\3\2\2\2,\u00d5"+
+		"\3\2\2\2.\u00d9\3\2\2\2\60\u00db\3\2\2\2\62\u00e3\3\2\2\2\64\u00e7\3\2"+
+		"\2\2\66\u00e9\3\2\2\28\u00eb\3\2\2\2:\u00f4\3\2\2\2<\u00f6\3\2\2\2>\u00f8"+
+		"\3\2\2\2@\u00fd\3\2\2\2B\u0103\3\2\2\2D\u010a\3\2\2\2F\u0112\3\2\2\2H"+
+		"\u0114\3\2\2\2J\u011b\3\2\2\2L\u0126\3\2\2\2N\u0139\3\2\2\2P\u013b\3\2"+
+		"\2\2R\u0148\3\2\2\2T\u014a\3\2\2\2V\u0152\3\2\2\2X\u0154\3\2\2\2Z\u0156"+
+		"\3\2\2\2\\\u015a\3\2\2\2^\u015c\3\2\2\2`\u015e\3\2\2\2b\u0160\3\2\2\2"+
+		"d\u0162\3\2\2\2f\u0164\3\2\2\2h\u0166\3\2\2\2j\u0168\3\2\2\2lm\5\4\3\2"+
+		"mn\5\6\4\2no\7\r\2\2o\3\3\2\2\2pq\7\26\2\2qr\7\3\2\2r\5\3\2\2\2st\5\b"+
+		"\5\2tu\5,\27\2u\7\3\2\2\2vw\5\n\6\2wx\7\3\2\2xz\3\2\2\2yv\3\2\2\2yz\3"+
+		"\2\2\2z~\3\2\2\2{|\5\26\f\2|}\7\3\2\2}\177\3\2\2\2~{\3\2\2\2~\177\3\2"+
+		"\2\2\177\t\3\2\2\2\u0080\u0081\7\27\2\2\u0081\u0082\5\f\7\2\u0082\13\3"+
+		"\2\2\2\u0083\u0088\5\16\b\2\u0084\u0085\7\3\2\2\u0085\u0087\5\16\b\2\u0086"+
+		"\u0084\3\2\2\2\u0087\u008a\3\2\2\2\u0088\u0086\3\2\2\2\u0088\u0089\3\2"+
+		"\2\2\u0089\r\3\2\2\2\u008a\u0088\3\2\2\2\u008b\u008c\5\20\t\2\u008c\u008d"+
+		"\7\21\2\2\u008d\u008e\5\22\n\2\u008e\17\3\2\2\2\u008f\u0090\7(\2\2\u0090"+
+		"\21\3\2\2\2\u0091\u0093\5\24\13\2\u0092\u0091\3\2\2\2\u0092\u0093\3\2"+
+		"\2\2\u0093\u0096\3\2\2\2\u0094\u0097\7(\2\2\u0095\u0097\5\\/\2\u0096\u0094"+
+		"\3\2\2\2\u0096\u0095\3\2\2\2\u0097\u009b\3\2\2\2\u0098\u009b\5b\62\2\u0099"+
+		"\u009b\5d\63\2\u009a\u0092\3\2\2\2\u009a\u0098\3\2\2\2\u009a\u0099\3\2"+
+		"\2\2\u009b\23\3\2\2\2\u009c\u009d\t\2\2\2\u009d\25\3\2\2\2\u009e\u009f"+
+		"\7\"\2\2\u009f\u00a0\5\30\r\2\u00a0\27\3\2\2\2\u00a1\u00a6\5\32\16\2\u00a2"+
+		"\u00a3\7\3\2\2\u00a3\u00a5\5\32\16\2\u00a4\u00a2\3\2\2\2\u00a5\u00a8\3"+
+		"\2\2\2\u00a6\u00a4\3\2\2\2\u00a6\u00a7\3\2\2\2\u00a7\31\3\2\2\2\u00a8"+
+		"\u00a6\3\2\2\2\u00a9\u00aa\5\34\17\2\u00aa\u00ab\7\21\2\2\u00ab\u00ac"+
+		"\5 \21\2\u00ac\33\3\2\2\2\u00ad\u00b2\5\36\20\2\u00ae\u00af\7\23\2\2\u00af"+
+		"\u00b1\5\36\20\2\u00b0\u00ae\3\2\2\2\u00b1\u00b4\3\2\2\2\u00b2\u00b0\3"+
+		"\2\2\2\u00b2\u00b3\3\2\2\2\u00b3\35\3\2\2\2\u00b4\u00b2\3\2\2\2\u00b5"+
+		"\u00b6\7(\2\2\u00b6\37\3\2\2\2\u00b7\u00b8\5\"\22\2\u00b8!\3\2\2\2\u00b9"+
+		"\u00bc\5(\25\2\u00ba\u00bc\5$\23\2\u00bb\u00b9\3\2\2\2\u00bb\u00ba\3\2"+
+		"\2\2\u00bc#\3\2\2\2\u00bd\u00be\7%\2\2\u00be\u00c3\5&\24\2\u00bf\u00c0"+
+		"\7\23\2\2\u00c0\u00c2\5&\24\2\u00c1\u00bf\3\2\2\2\u00c2\u00c5\3\2\2\2"+
+		"\u00c3\u00c1\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4\u00c6\3\2\2\2\u00c5\u00c3"+
+		"\3\2\2\2\u00c6\u00c7\7&\2\2\u00c7%\3\2\2\2\u00c8\u00c9\5\20\t\2\u00c9"+
+		"\'\3\2\2\2\u00ca\u00cb\7(\2\2\u00cb)\3\2\2\2\u00cc\u00d4\5,\27\2\u00cd"+
+		"\u00d4\5\62\32\2\u00ce\u00d4\58\35\2\u00cf\u00d4\5> \2\u00d0\u00d4\5@"+
+		"!\2\u00d1\u00d4\5B\"\2\u00d2\u00d4\5.\30\2\u00d3\u00cc\3\2\2\2\u00d3\u00cd"+
+		"\3\2\2\2\u00d3\u00ce\3\2\2\2\u00d3\u00cf\3\2\2\2\u00d3\u00d0\3\2\2\2\u00d3"+
+		"\u00d1\3\2\2\2\u00d3\u00d2\3\2\2\2\u00d4+\3\2\2\2\u00d5\u00d6\7\30\2\2"+
+		"\u00d6\u00d7\5\60\31\2\u00d7\u00d8\7\31\2\2\u00d8-\3\2\2\2\u00d9\u00da"+
+		"\3\2\2\2\u00da/\3\2\2\2\u00db\u00e0\5*\26\2\u00dc\u00dd\7\3\2\2\u00dd"+
+		"\u00df\5*\26\2\u00de\u00dc\3\2\2\2\u00df\u00e2\3\2\2\2\u00e0\u00de\3\2"+
+		"\2\2\u00e0\u00e1\3\2\2\2\u00e1\61\3\2\2\2\u00e2\u00e0\3\2\2\2\u00e3\u00e4"+
+		"\5\64\33\2\u00e4\u00e5\7\21\2\2\u00e5\u00e6\5\66\34\2\u00e6\63\3\2\2\2"+
+		"\u00e7\u00e8\5P)\2\u00e8\65\3\2\2\2\u00e9\u00ea\5H%\2\u00ea\67\3\2\2\2"+
+		"\u00eb\u00ec\7\32\2\2\u00ec\u00ed\7%\2\2\u00ed\u00ee\5H%\2\u00ee\u00ef"+
+		"\7&\2\2\u00ef\u00f2\5:\36\2\u00f0\u00f1\7\33\2\2\u00f1\u00f3\5<\37\2\u00f2"+
+		"\u00f0\3\2\2\2\u00f2\u00f3\3\2\2\2\u00f39\3\2\2\2\u00f4\u00f5\5*\26\2"+
+		"\u00f5;\3\2\2\2\u00f6\u00f7\5*\26\2\u00f7=\3\2\2\2\u00f8\u00f9\7\34\2"+
+		"\2\u00f9\u00fa\5H%\2\u00fa\u00fb\7\35\2\2\u00fb\u00fc\5*\26\2\u00fc?\3"+
+		"\2\2\2\u00fd\u00fe\7\37\2\2\u00fe\u00ff\7%\2\2\u00ff\u0100\5D#\2\u0100"+
+		"\u0101\7&\2\2\u0101\u0102\7\3\2\2\u0102A\3\2\2\2\u0103\u0104\7 \2\2\u0104"+
+		"\u0105\7%\2\2\u0105\u0106\5D#\2\u0106\u0107\7&\2\2\u0107\u0108\7\3\2\2"+
+		"\u0108\u0109\7.\2\2\u0109C\3\2\2\2\u010a\u010f\5F$\2\u010b\u010c\7\23"+
+		"\2\2\u010c\u010e\5F$\2\u010d\u010b\3\2\2\2\u010e\u0111\3\2\2\2\u010f\u010d"+
+		"\3\2\2\2\u010f\u0110\3\2\2\2\u0110E\3\2\2\2\u0111\u010f\3\2\2\2\u0112"+
+		"\u0113\5H%\2\u0113G\3\2\2\2\u0114\u0118\5J&\2\u0115\u0116\5f\64\2\u0116"+
+		"\u0117\5J&\2\u0117\u0119\3\2\2\2\u0118\u0115\3\2\2\2\u0118\u0119\3\2\2"+
+		"\2\u0119I\3\2\2\2\u011a\u011c\5\24\13\2\u011b\u011a\3\2\2\2\u011b\u011c"+
+		"\3\2\2\2\u011c\u011d\3\2\2\2\u011d\u0123\5L\'\2\u011e\u011f\5h\65\2\u011f"+
+		"\u0120\5L\'\2\u0120\u0122\3\2\2\2\u0121\u011e\3\2\2\2\u0122\u0125\3\2"+
+		"\2\2\u0123\u0121\3\2\2\2\u0123\u0124\3\2\2\2\u0124K\3\2\2\2\u0125\u0123"+
+		"\3\2\2\2\u0126\u012c\5N(\2\u0127\u0128\5j\66\2\u0128\u0129\5N(\2\u0129"+
+		"\u012b\3\2\2\2\u012a\u0127\3\2\2\2\u012b\u012e\3\2\2\2\u012c\u012a\3\2"+
+		"\2\2\u012c\u012d\3\2\2\2\u012dM\3\2\2\2\u012e\u012c\3\2\2\2\u012f\u013a"+
+		"\5P)\2\u0130\u013a\5Z.\2\u0131\u013a\5b\62\2\u0132\u013a\5d\63\2\u0133"+
+		"\u0134\7!\2\2\u0134\u013a\5N(\2\u0135\u0136\7%\2\2\u0136\u0137\5H%\2\u0137"+
+		"\u0138\7&\2\2\u0138\u013a\3\2\2\2\u0139\u012f\3\2\2\2\u0139\u0130\3\2"+
+		"\2\2\u0139\u0131\3\2\2\2\u0139\u0132\3\2\2\2\u0139\u0133\3\2\2\2\u0139"+
+		"\u0135\3\2\2\2\u013aO\3\2\2\2\u013b\u013f\5\36\20\2\u013c\u013e\5R*\2"+
+		"\u013d\u013c\3\2\2\2\u013e\u0141\3\2\2\2\u013f\u013d\3\2\2\2\u013f\u0140"+
+		"\3\2\2\2\u0140Q\3\2\2\2\u0141\u013f\3\2\2\2\u0142\u0143\7\7\2\2\u0143"+
+		"\u0144\5T+\2\u0144\u0145\7\n\2\2\u0145\u0149\3\2\2\2\u0146\u0147\7\25"+
+		"\2\2\u0147\u0149\5X-\2\u0148\u0142\3\2\2\2\u0148\u0146\3\2\2\2\u0149S"+
+		"\3\2\2\2\u014a\u014f\5V,\2\u014b\u014c\7\23\2\2\u014c\u014e\5V,\2\u014d"+
+		"\u014b\3\2\2\2\u014e\u0151\3\2\2\2\u014f\u014d\3\2\2\2\u014f\u0150\3\2"+
+		"\2\2\u0150U\3\2\2\2\u0151\u014f\3\2\2\2\u0152\u0153\5H%\2\u0153W\3\2\2"+
+		"\2\u0154\u0155\7(\2\2\u0155Y\3\2\2\2\u0156\u0157\5\\/\2\u0157[\3\2\2\2"+
+		"\u0158\u015b\5^\60\2\u0159\u015b\5`\61\2\u015a\u0158\3\2\2\2\u015a\u0159"+
+		"\3\2\2\2\u015b]\3\2\2\2\u015c\u015d\7)\2\2\u015d_\3\2\2\2\u015e\u015f"+
+		"\7*\2\2\u015fa\3\2\2\2\u0160\u0161\7,\2\2\u0161c\3\2\2\2\u0162\u0163\7"+
+		"-\2\2\u0163e\3\2\2\2\u0164\u0165\t\3\2\2\u0165g\3\2\2\2\u0166\u0167\t"+
+		"\4\2\2\u0167i\3\2\2\2\u0168\u0169\t\5\2\2\u0169k\3\2\2\2\31y~\u0088\u0092"+
+		"\u0096\u009a\u00a6\u00b2\u00bb\u00c3\u00d3\u00e0\u00f2\u010f\u0118\u011b"+
+		"\u0123\u012c\u0139\u013f\u0148\u014f\u015a";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

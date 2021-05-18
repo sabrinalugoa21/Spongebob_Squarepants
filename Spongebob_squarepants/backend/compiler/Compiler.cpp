@@ -3,7 +3,7 @@
 
 namespace backend { namespace compiler {
 
-Object Compiler::visitProgram(PascalParser::ProgramContext *ctx)
+Object Compiler::visitProgram(Spongebob_SquarepantsParser::ProgramContext *ctx)
 {
     createNewGenerators(code);
     programCode->emitProgram(ctx);
@@ -11,14 +11,14 @@ Object Compiler::visitProgram(PascalParser::ProgramContext *ctx)
 }
 
 Object Compiler::visitRoutineDefinition(
-                                PascalParser::RoutineDefinitionContext *ctx)
+		Spongebob_SquarepantsParser::RoutineDefinitionContext *ctx)
 {
     createNewGenerators(programCode);
     programCode->emitRoutine(ctx);
     return nullptr;
 }
 
-Object Compiler::visitStatement(PascalParser::StatementContext *ctx)
+Object Compiler::visitStatement(Spongebob_SquarepantsParser::StatementContext *ctx)
 {
     if (   (ctx->compoundStatement() == nullptr)
         && (ctx->emptyStatement() == nullptr))
@@ -30,68 +30,44 @@ Object Compiler::visitStatement(PascalParser::StatementContext *ctx)
 }
 
 Object Compiler::visitAssignmentStatement(
-                                PascalParser::AssignmentStatementContext *ctx)
+		Spongebob_SquarepantsParser::AssignmentStatementContext *ctx)
 {
     statementCode->emitAssignment(ctx);
     return nullptr;
 }
 
-Object Compiler::visitIfStatement(PascalParser::IfStatementContext *ctx)
+Object Compiler::visitIfStatement(Spongebob_SquarepantsParser::IfStatementContext *ctx)
 {
     statementCode->emitIf(ctx);
     return nullptr;
 }
 
-Object Compiler::visitCaseStatement(PascalParser::CaseStatementContext *ctx)
-{
-    statementCode->emitCase(ctx);
-    return nullptr;
-}
-
-Object Compiler::visitRepeatStatement(PascalParser::RepeatStatementContext *ctx)
-{
-    statementCode->emitRepeat(ctx);
-    return nullptr;
-}
-
-Object Compiler::visitWhileStatement(PascalParser::WhileStatementContext *ctx)
+Object Compiler::visitWhileStatement(Spongebob_SquarepantsParser::WhileStatementContext *ctx)
 {
     statementCode->emitWhile(ctx);
     return nullptr;
 }
 
-Object Compiler::visitForStatement(PascalParser::ForStatementContext *ctx)
-{
-    statementCode->emitFor(ctx);
-    return nullptr;
-}
 
-Object Compiler::visitProcedureCallStatement(
-                            PascalParser::ProcedureCallStatementContext *ctx)
-{
-    statementCode->emitProcedureCall(ctx);
-    return nullptr;
-}
-
-Object Compiler::visitExpression(PascalParser::ExpressionContext *ctx)
+Object Compiler::visitExpression(Spongebob_SquarepantsParser::ExpressionContext *ctx)
 {
     expressionCode->emitExpression(ctx);
     return nullptr;
 }
 
-Object Compiler::visitVariableFactor(PascalParser::VariableFactorContext *ctx)
+Object Compiler::visitVariableFactor(Spongebob_SquarepantsParser::VariableFactorContext *ctx)
 {
     expressionCode->emitLoadValue(ctx->variable());
     return nullptr;
 }
 
-Object Compiler::visitVariable(PascalParser::VariableContext *ctx)
+Object Compiler::visitVariable(Spongebob_SquarepantsParser::VariableContext *ctx)
 {
     expressionCode->emitLoadVariable(ctx);
     return nullptr;
 }
 
-Object Compiler::visitNumberFactor(PascalParser::NumberFactorContext *ctx)
+Object Compiler::visitNumberFactor(Spongebob_SquarepantsParser::NumberFactorContext *ctx)
 {
     if (ctx->type == Predefined::integerType)
     {
@@ -105,7 +81,7 @@ Object Compiler::visitNumberFactor(PascalParser::NumberFactorContext *ctx)
     return nullptr;
 }
 
-Object Compiler::visitCharacterFactor(PascalParser::CharacterFactorContext *ctx)
+Object Compiler::visitCharacterFactor(Spongebob_SquarepantsParser::CharacterFactorContext *ctx)
 {
     char ch = ctx->getText()[1];
     expressionCode->emitLoadConstant(ch);
@@ -113,7 +89,7 @@ Object Compiler::visitCharacterFactor(PascalParser::CharacterFactorContext *ctx)
     return nullptr;
 }
 
-Object Compiler::visitStringFactor(PascalParser::StringFactorContext *ctx)
+Object Compiler::visitStringFactor(Spongebob_SquarepantsParser::StringFactorContext *ctx)
 {
     string jasminString = convertString(ctx->getText(), true);
     expressionCode->emitLoadConstant(jasminString);
@@ -121,47 +97,28 @@ Object Compiler::visitStringFactor(PascalParser::StringFactorContext *ctx)
     return nullptr;
 }
 
-Object Compiler::visitFunctionCallFactor(
-                                PascalParser::FunctionCallFactorContext *ctx)
-{
-    statementCode->emitFunctionCall(ctx->functionCall());
-    return nullptr;
-}
-
-Object Compiler::visitNotFactor(PascalParser::NotFactorContext *ctx)
+Object Compiler::visitNotFactor(Spongebob_SquarepantsParser::NotFactorContext *ctx)
 {
     expressionCode->emitNotFactor(ctx);
     return nullptr;
 }
 
-Object Compiler::visitParenthesizedFactor(
-                                PascalParser::ParenthesizedFactorContext *ctx)
+Object Compiler::visitParenthesizedFactor(Spongebob_SquarepantsParser::ParenthesizedFactorContext *ctx)
 {
     return visit(ctx->expression());
 }
 
-Object Compiler::visitWriteStatement(PascalParser::WriteStatementContext *ctx)
+Object Compiler::visitWriteStatement(Spongebob_SquarepantsParser::WriteStatementContext *ctx)
 {
     statementCode->emitWrite(ctx);
     return nullptr;
 }
 
-Object Compiler::visitWritelnStatement(PascalParser::WritelnStatementContext *ctx)
+Object Compiler::visitWritelnStatement(Spongebob_SquarepantsParser::WritelnStatementContext *ctx)
 {
     statementCode->emitWriteln(ctx);
     return nullptr;
 }
 
-Object Compiler::visitReadStatement(PascalParser::ReadStatementContext *ctx)
-{
-    statementCode->emitRead(ctx);
-    return nullptr;
-}
-
-Object Compiler::visitReadlnStatement(PascalParser::ReadlnStatementContext *ctx)
-{
-    statementCode->emitReadln(ctx);
-    return nullptr;
-}
 
 }}  // namespace backend::compiler

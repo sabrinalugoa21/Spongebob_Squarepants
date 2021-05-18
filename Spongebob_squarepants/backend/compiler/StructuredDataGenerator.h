@@ -17,34 +17,6 @@ public:
      * @param routineId the routine's symbol table entry.
      */
     void emitData(SymtabEntry *routineId);
-
-
-private:
-    /**
-     * Emit code to allocate an array for a target variable or field.
-     * @param targetId the target variable's or field's symbol table entry.
-     * @param arrayType the array type.
-     */
-    void emitAllocateArray(SymtabEntry *targetId, Typespec *arrayType);
-
-    /**
-     * Emit code that loops over the array dimensions to allocate
-     * data for each element.
-     * @param targetId the symbol table entry of the target variable.
-     * @param elmtType the data type of the array element.
-     * @param dimensionIndex the first dimension is 1, second is 2, etc.
-     * @param dimensionCount the count of dimensions.
-     */
-    void emitAllocateArrayElements(SymtabEntry *targetId, Typespec *elmtType,
-                                   int dimensionIndex, int dimensionCount);
-
-    /**
-     * Emit code to allocate a record variable as a class.
-     * @param variableId the symbol table entry of the variable.
-     * @param recordType the record data type.
-     */
-    void emitAllocateRecord(SymtabEntry *variableId, Typespec *recordType,
-                            Instruction dup);
 };
 
 }} // namespace backend::compiler

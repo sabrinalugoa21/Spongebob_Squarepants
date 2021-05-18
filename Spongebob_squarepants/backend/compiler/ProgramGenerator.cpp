@@ -1,6 +1,6 @@
 #include <vector>
 
-#include "PascalBaseVisitor.h"
+#include "Spongebob_SquarepantsBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "Directive.h"
@@ -13,14 +13,13 @@ namespace backend { namespace compiler {
 
 using namespace std;
 
-void ProgramGenerator::emitProgram(PascalParser::ProgramContext *ctx)
+void ProgramGenerator::emitProgram(Spongebob_SquarepantsParser::ProgramContext *ctx)
 {
     programId = ctx->programHeader()->programIdentifier()->entry;
     Symtab *programSymtab = programId->getRoutineSymtab();
 
     localVariables = new LocalVariables(programLocalsCount);
 
-    emitRecords(programSymtab);
 
     emitDirective(CLASS_PUBLIC, programName);
     emitDirective(SUPER, "java/lang/Object");
@@ -33,41 +32,6 @@ void ProgramGenerator::emitProgram(PascalParser::ProgramContext *ctx)
     emitMainMethod(ctx);
 }
 
-void ProgramGenerator::emitRecords(Symtab *symtab)
-{
-    for (SymtabEntry *id : symtab->sortedEntries())
-    {
-        if (   (id->getKind() == TYPE)
-            && (id->getType()->getForm() == RECORD))
-        {
-            new Compiler(compiler, id);
-        }
-    }
-}
-
-void ProgramGenerator::emitRecord(SymtabEntry *recordId, string namePath)
-{
-    Symtab *recordSymtab = recordId->getType()->getRecordSymtab();
-
-    emitDirective(CLASS_PUBLIC, namePath);
-    emitDirective(SUPER, "java/lang/Object");
-    emitLine();
-
-    // Emit code for any nested records.
-    emitRecords(recordSymtab);
-
-    // Emit record fields.
-    for (SymtabEntry *id : recordSymtab->sortedEntries())
-    {
-        if (id->getKind() == RECORD_FIELD)
-        {
-            emitDirective(FIELD, id->getName(), typeDescriptor(id));
-        }
-    }
-
-    emitConstructor();
-    close();  // the object file
-}
 
 void ProgramGenerator::emitProgramVariables()
 {
@@ -133,11 +97,11 @@ void ProgramGenerator::emitConstructor()
     localStack->reset();
 }
 
-void ProgramGenerator::emitSubroutines(PascalParser::RoutinesPartContext *ctx)
+void ProgramGenerator::emitSubroutines(Spongebob_SquarepantsParser::RoutinesPartContext *ctx)
 {
     if (ctx != nullptr)
     {
-        for (PascalParser::RoutineDefinitionContext *defnCtx :
+        for (Spongebob_SquarepantsParser::RoutineDefinitionContext *defnCtx :
                                                     ctx->routineDefinition())
         {
             compiler = new Compiler(compiler);
@@ -146,7 +110,7 @@ void ProgramGenerator::emitSubroutines(PascalParser::RoutinesPartContext *ctx)
     }
 }
 
-void ProgramGenerator::emitMainMethod(PascalParser::ProgramContext *ctx)
+void ProgramGenerator::emitMainMethod(Spongebob_SquarepantsParser::ProgramContext *ctx)
 {
     emitLine();
     emitComment("MAIN");
@@ -222,7 +186,7 @@ void ProgramGenerator::emitMainEpilogue()
     close();  // the object file
 }
 
-void ProgramGenerator::emitRoutine(PascalParser::RoutineDefinitionContext *ctx)
+void ProgramGenerator::emitRoutine(Spongebob_SquarepantsParser::RoutineDefinitionContext *ctx)
 {
     SymtabEntry *routineId = ctx->procedureHead() != nullptr
                             ? ctx->procedureHead()->routineIdentifier()->entry
@@ -239,8 +203,8 @@ void ProgramGenerator::emitRoutine(PascalParser::RoutineDefinitionContext *ctx)
     localVariables = new LocalVariables(routineSymtab->getMaxSlotNumber());
 
     // Emit code for the compound statement.
-    PascalParser::CompoundStatementContext *stmtCtx =
-        (PascalParser::CompoundStatementContext *) routineId->getExecutable();
+    Spongebob_SquarepantsParser::CompoundStatementContext *stmtCtx =
+        (Spongebob_SquarepantsParser::CompoundStatementContext *) routineId->getExecutable();
     compiler->visit(stmtCtx);
 
     emitRoutineReturn(routineId);

@@ -33,8 +33,6 @@ public:
     static SymtabEntry *stringId;
     static SymtabEntry *falseId;
     static SymtabEntry *trueId;
-    static SymtabEntry *readId;
-    static SymtabEntry *readlnId;
     static SymtabEntry *writeId;
     static SymtabEntry *writelnId;
     static SymtabEntry *absId;

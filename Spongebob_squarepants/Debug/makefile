@@ -48,7 +48,7 @@ all: Spongebob_squarepants
 Spongebob_squarepants: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/home/sabrina/Downloads/ANTLR-4.9.2/run/usr/local/lib -L/usr/local/lib -o "Spongebob_squarepants" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L/usr/local/lib -o "Spongebob_squarepants" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

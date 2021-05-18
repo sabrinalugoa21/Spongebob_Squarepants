@@ -1,7 +1,7 @@
 #ifndef COMPILER_H_
 #define COMPILER_H_
 
-#include "PascalBaseVisitor.h"
+#include "Spongebob_SquarepantsBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symbtab/SymtabStack.h"
@@ -19,7 +19,7 @@ using namespace intermediate::type;
 
 class CodeGenerator;
 
-class Compiler : public PascalBaseVisitor
+class Compiler : public Spongebob_SquarepantsBaseVisitor
 {
 private:
     SymtabEntry *programId;  // symbol table entry of the program name
@@ -51,49 +51,27 @@ public:
           statementCode(nullptr), expressionCode(nullptr) {}
 
     /**
-     * Constructor for child compilers of records.
-     * @param parent the parent compiler.
-     * @param recordId the symbol table entry of the name of the record to compile.
-     */
-    Compiler(Compiler *parent, SymtabEntry *recordId)
-    {
-        string recordTypePath = recordId->getType()->getRecordTypePath();
-        code = new CodeGenerator(recordTypePath, "j", this);
-        createNewGenerators(code);
-
-        programCode->emitRecord(recordId, recordTypePath);
-    }
-
-    /**
      * Get the name of the object (Jasmin) file.
      * @return the file name.
      */
     string getObjectFileName() { return code->getObjectFileName(); }
 
-    Object visitProgram(PascalParser::ProgramContext *ctx) override;
-    Object visitRoutineDefinition(PascalParser::RoutineDefinitionContext *ctx) override;
-    Object visitStatement(PascalParser::StatementContext *ctx) override;
-    Object visitAssignmentStatement(PascalParser::AssignmentStatementContext *ctx) override;
-    Object visitIfStatement(PascalParser::IfStatementContext *ctx) override;
-    Object visitCaseStatement(PascalParser::CaseStatementContext *ctx) override;
-    Object visitRepeatStatement(PascalParser::RepeatStatementContext *ctx) override;
-    Object visitWhileStatement(PascalParser::WhileStatementContext *ctx) override;
-    Object visitForStatement(PascalParser::ForStatementContext *ctx) override;
-    Object visitProcedureCallStatement(PascalParser::ProcedureCallStatementContext *ctx) override;
-    Object visitExpression(PascalParser::ExpressionContext *ctx) override;
-    Object visitVariableFactor(PascalParser::VariableFactorContext *ctx) override;
-    Object visitVariable(PascalParser::VariableContext *ctx) override;
-    Object visitNumberFactor(PascalParser::NumberFactorContext *ctx) override;
-    Object visitCharacterFactor(PascalParser::CharacterFactorContext *ctx) override;
-    Object visitStringFactor(PascalParser::StringFactorContext *ctx) override;
-    Object visitFunctionCallFactor(PascalParser::FunctionCallFactorContext *context) override;
-    Object visitNotFactor(PascalParser::NotFactorContext *ctx) override;
-    Object visitParenthesizedFactor(PascalParser::ParenthesizedFactorContext *ctx) override;
-    Object visitWriteStatement(PascalParser::WriteStatementContext *ctx) override;
-    Object visitWritelnStatement(PascalParser::WritelnStatementContext *ctx) override;
-    Object visitReadStatement(PascalParser::ReadStatementContext *ctx) override;
-    Object visitReadlnStatement(PascalParser::ReadlnStatementContext *ctx) override;
-
+    Object visitProgram(Spongebob_SquarepantsParser::ProgramContext *ctx) override;
+    Object visitRoutineDefinition(Spongebob_SquarepantsParser::RoutineDefinitionContext *ctx) override;
+    Object visitStatement(Spongebob_SquarepantsParser::StatementContext *ctx) override;
+    Object visitAssignmentStatement(Spongebob_SquarepantsParser::AssignmentStatementContext *ctx) override;
+    Object visitIfStatement(Spongebob_SquarepantsParser::IfStatementContext *ctx) override;
+    Object visitWhileStatement(Spongebob_SquarepantsParserr::WhileStatementContext *ctx) override;
+    Object visitExpression(Spongebob_SquarepantsParser::ExpressionContext *ctx) override;
+    Object visitVariableFactor(Spongebob_SquarepantsParser::VariableFactorContext *ctx) override;
+    Object visitVariable(Spongebob_SquarepantsParser::VariableContext *ctx) override;
+    Object visitNumberFactor(Spongebob_SquarepantsParser::NumberFactorContext *ctx) override;
+    Object visitCharacterFactor(Spongebob_SquarepantsParser::CharacterFactorContext *ctx) override;
+    Object visitStringFactor(Spongebob_SquarepantsParser::StringFactorContext *ctx) override;
+    Object visitNotFactor(Spongebob_SquarepantsParser::NotFactorContext *ctx) override;
+    Object visitParenthesizedFactor(Spongebob_SquarepantsParser::ParenthesizedFactorContext *ctx) override;
+    Object visitWriteStatement(Spongebob_SquarepantsParser::WriteStatementContext *ctx) override;
+    Object visitWritelnStatement(Spongebob_SquarepantsParser::WritelnStatementContext *ctx) override;
 private:
     /**
      * Create new child code generators.

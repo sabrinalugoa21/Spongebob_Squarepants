@@ -28,24 +28,13 @@ public:
      * Emit code for a program.
      * @param *ctx the ProgramContext.
      */
-    void emitProgram(PascalParser::ProgramContext *ctx);
-
-    /*
-     * Create a new compiler instance for a record.
-     * @param symtab the record type's symbol table.
-     */
-    void emitRecords(Symtab *symtab);
-
-    /*
-     * Emit code for a record.
-     */
-    void emitRecord(SymtabEntry *recordId, string namePath);
+    void emitProgram(Spongebob_SquarepantsParser::ProgramContext *ctx);
 
     /*
      * Emit code for a declared procedure or function
      * @param routineId the symbol table entry of the routine's name.
      */
-    void emitRoutine(PascalParser::RoutineDefinitionContext *ctx);
+    void emitRoutine(Spongebob_SquarepantsParser::RoutineDefinitionContext *ctx);
 
 private:
     /*
@@ -66,13 +55,13 @@ private:
     /*
      * Emit code for any nested procedures and functions.
      */
-    void emitSubroutines(PascalParser::RoutinesPartContext *ctx);
+    void emitSubroutines(Spongebob_SquarepantsParser::RoutinesPartContext *ctx);
 
     /*
      * Emit code for the program body as the main method.
      * @param *ctx the ProgramContext.
      */
-    void emitMainMethod(PascalParser::ProgramContext *ctx);
+    void emitMainMethod(Spongebob_SquarepantsParser::ProgramContext *ctx);
 
     /*
      * Emit the main method prologue.

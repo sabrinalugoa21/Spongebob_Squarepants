@@ -45,8 +45,13 @@ grammar Spongebob_Squarepants;
  typeSpecification    locals [Typespec *type = nullptr]
  	 :simpleType;
  	 
- simpleType 		  locals [Typespec *type = nullptr]
- 	: typeIdentifier;
+simpleType          locals [ Typespec *type = nullptr ] 
+    : typeIdentifier    # typeIdentifierTypespec 
+    | enumerationType   # enumerationTypespec
+    ;
+           
+enumerationType     : '(' enumerationConstant ( ',' enumerationConstant )* ')' ;
+enumerationConstant : constantIdentifier ;
  
  typeIdentifier 	  locals [Typespec *type = nullptr]
  	: IDENTIFIER;

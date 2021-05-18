@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <chrono>
 #include <iostream>
-#include "PascalBaseVisitor.h"
+#include "Spongebob_SquarepantsBaseVisitor.h"
 #include "antlr4-runtime.h"
 
 #include "intermediate/symbtab/Predefined.h"
@@ -59,7 +59,7 @@ void CodeGenerator::emitComment(string text)
  * Emit a statement comment.
  * @param ctx the StatementContext.
  */
-void CodeGenerator::emitComment(PascalParser::StatementContext *ctx)
+void CodeGenerator::emitComment(Spongebob_SquarepantsParser::StatementContext *ctx)
 {
     string text = ctx->getText();
     if (text.length() > 70) text = text.substr(0, 70) + " ...";
@@ -440,66 +440,6 @@ void CodeGenerator::emitStoreLocal(Typespec *type, int slot)
     }
 }
 
-void CodeGenerator::emitStoreToArrayElement(Typespec *elmtType)
-{
-    Form form = SCALAR;
-
-    if (elmtType != nullptr)
-    {
-        elmtType = elmtType->baseType();
-        form = elmtType->getForm();
-    }
-
-    emit(  elmtType == Predefined::integerType ? IASTORE
-         : elmtType == Predefined::realType    ? FASTORE
-         : elmtType == Predefined::booleanType ? BASTORE
-         : elmtType == Predefined::charType    ? CASTORE
-         : form == ENUMERATION                 ? IASTORE
-         :                                       AASTORE);
-}
-
-void CodeGenerator::emitStoreToRecordField(SymtabEntry *fieldId)
-{
-    string fieldName = fieldId->getName();
-    Typespec *fieldType = fieldId->getType();
-    Typespec *recordType = fieldId->getSymtab()->getOwner()->getType();
-
-    string recordTypePath = recordType->getRecordTypePath();
-    string fieldPath = recordTypePath + "/" + fieldName;
-
-    emit(PUTFIELD, fieldPath, typeDescriptor(fieldType));
-}
-
-// ======================
-// Miscellaneous emitters
-// ======================
-
-void CodeGenerator::emitCheckCast(Typespec *type)
-{
-    string descriptor = typeDescriptor(type);
-
-    // Don't bracket the type with L; if it's not an array.
-    if (descriptor[0] == 'L')
-    {
-        descriptor = descriptor.substr(1, descriptor.length() - 2);
-    }
-
-    emit(CHECKCAST, descriptor);
-}
-
-void CodeGenerator::emitCheckCastClass(Typespec *type)
-{
-    string descriptor = objectTypeName(type);
-
-    // Don't bracket the type with L; if it's not an array.
-    if (descriptor[0] == 'L')
-    {
-        descriptor = descriptor.substr(1, descriptor.length() - 2);
-    }
-
-    emit(CHECKCAST, descriptor);
-}
-
 void CodeGenerator::emitReturnValue(Typespec *type)
 {
     Form form = SCALAR;
@@ -518,21 +458,6 @@ void CodeGenerator::emitReturnValue(Typespec *type)
     else                                   emit(ARETURN);
 }
 
-void CodeGenerator::emitRangeCheck(Typespec *targetType)
-{
-//        if (targetType.getForm() == SUBRANGE)
-//        {
-//            int min = targetType.getSubrangeMinValue();
-//            int max = targetType.getSubrangeMaxValue();
-//
-//            emit(DUP);
-//            emitLoadConstant(min);
-//            emitLoadConstant(max);
-//            emit(INVOKESTATIC, "RangeChecker/check(III)V");
-//
-//            localStack->use(3);
-//        }
-}
 
 // =========
 // Utilities
@@ -548,13 +473,6 @@ string CodeGenerator::typeDescriptor(Typespec *pascalType)
     Form form = pascalType->getForm();
     string descriptor;
 
-    while (form == ARRAY)
-    {
-        descriptor += "[";
-        pascalType =  pascalType->getArrayElementType();
-        form = pascalType->getForm();
-    }
-
     pascalType = pascalType->baseType();
     string str;
 
@@ -568,50 +486,6 @@ string CodeGenerator::typeDescriptor(Typespec *pascalType)
 
     descriptor += str;
     return descriptor;
-}
-
-string CodeGenerator::objectTypeName(Typespec *pascalType)
-{
-    Form form = pascalType->getForm();
-    string typeName;
-    bool isArray = false;
-
-    while (form == ARRAY)
-    {
-        typeName += "[";
-        pascalType = pascalType->getArrayElementType();
-        form = pascalType->getForm();
-        isArray = true;
-    }
-
-    if (isArray)  typeName += "L";
-
-    pascalType = pascalType->baseType();
-    string str;
-
-    if      (pascalType == Predefined::integerType) str = "java/lang/Integer";
-    else if (pascalType == Predefined::realType)    str = "java/lang/Float";
-    else if (pascalType == Predefined::booleanType) str = "java/lang/Boolean";
-    else if (pascalType == Predefined::charType)    str = "java/lang/Character";
-    else if (pascalType == Predefined::stringType)  str = "Ljava/lang/String;";
-    else if (form == ENUMERATION)                  str = "java/lang/Integer";
-    else /* (form == RECORD) */ str = "L" + pascalType->getRecordTypePath() + ";";
-
-    typeName += str;
-    if (isArray) typeName += ";";
-
-    return typeName;
-}
-bool CodeGenerator::needsCloning(SymtabEntry *formalId)
-{
-    Typespec *type = formalId->getType();
-    Form form = type->getForm();
-    Kind kind = formalId->getKind();
-
-    // Arrays and records are normally passed by reference
-    // and so must be cloned to be passed by value.
-    return (   (kind == VALUE_PARAMETER))
-            && ((form == ARRAY) || (form == RECORD));
 }
 
 string CodeGenerator::valueOfSignature(Typespec *type)

@@ -83,14 +83,7 @@ private:
      * Print cross-reference tables for records defined in the routine.
      * @param recordTypes the list to fill with RECORD type specifications.
      */
-    void printRecords(vector<Typespec *>& recordTypes) const;
 
-    /**
-     * Convert a value to a string.
-     * @param value the value.
-     * @param type the value's datatype.
-     * @return the string.
-     */
     string toString(Object dataValue, Typespec *type) const;
 };
 

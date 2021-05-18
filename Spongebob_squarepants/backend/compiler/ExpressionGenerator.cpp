@@ -1,4 +1,4 @@
-#include "PascalBaseVisitor.h"
+#include "Spongebob_SquarepantsBaseVisitor.h"
 #include "Includes/usr/local/include/antlr4-runtime/antlr4-runtime.h"
 
 #include "intermediate/symbtab/Predefined.h"
@@ -9,11 +9,11 @@
 
 namespace backend { namespace compiler {
 
-void ExpressionGenerator::emitExpression(PascalParser::ExpressionContext *ctx)
+void ExpressionGenerator::emitExpression(Spongebob_SquarepantsParser::ExpressionContext *ctx)
 {
-    PascalParser::SimpleExpressionContext *simpleCtx1 =
+	Spongebob_SquarepantsParser::SimpleExpressionContext *simpleCtx1 =
                                             ctx->simpleExpression()[0];
-    PascalParser::RelOpContext *relOpCtx = ctx->relOp();
+	Spongebob_SquarepantsParser::RelOpContext *relOpCtx = ctx->relOp();
     Typespec *type1 = simpleCtx1->type;
     emitSimpleExpression(simpleCtx1);
 
@@ -21,7 +21,7 @@ void ExpressionGenerator::emitExpression(PascalParser::ExpressionContext *ctx)
     if (relOpCtx != nullptr)
     {
         string op = relOpCtx->getText();
-        PascalParser::SimpleExpressionContext *simpleCtx2 =
+        Spongebob_SquarepantsParser::SimpleExpressionContext *simpleCtx2 =
                                             ctx->simpleExpression()[1];
         Typespec *type2 = simpleCtx2->type;
 
@@ -99,14 +99,14 @@ void ExpressionGenerator::emitExpression(PascalParser::ExpressionContext *ctx)
     }
 }
 
-void ExpressionGenerator::emitSimpleExpression(PascalParser::SimpleExpressionContext *ctx)
+void ExpressionGenerator::emitSimpleExpression(Spongebob_SquarepantsParser::SimpleExpressionContext *ctx)
 {
     int count = ctx->term().size();
     bool negate =    (ctx->sign() != nullptr)
                   && (ctx->sign()->getText() == "-");
 
     // First term.
-    PascalParser::TermContext *termCtx1 = ctx->term()[0];
+    Spongebob_SquarepantsParser::TermContext *termCtx1 = ctx->term()[0];
     Typespec *type1 = termCtx1->type;
     emitTerm(termCtx1);
 
@@ -116,7 +116,7 @@ void ExpressionGenerator::emitSimpleExpression(PascalParser::SimpleExpressionCon
     for (int i = 1; i < count; i++)
     {
         string op = toLowerCase(ctx->addOp()[i-1]->getText());
-        PascalParser::TermContext *termCtx2 = ctx->term()[i];
+        Spongebob_SquarepantsParser::TermContext *termCtx2 = ctx->term()[i];
         Typespec *type2 = termCtx2->type;
 
         bool integerMode = false;
@@ -187,12 +187,12 @@ void ExpressionGenerator::emitSimpleExpression(PascalParser::SimpleExpressionCon
     }
 }
 
-void ExpressionGenerator::emitTerm(PascalParser::TermContext *ctx)
+void ExpressionGenerator::emitTerm(Spongebob_SquarepantsParser::TermContext *ctx)
 {
     int count = ctx->factor().size();
 
     // First factor.
-    PascalParser::FactorContext *factorCtx1 = ctx->factor()[0];
+    Spongebob_SquarepantsParser::FactorContext *factorCtx1 = ctx->factor()[0];
     Typespec *type1 = factorCtx1->type;
     compiler->visit(factorCtx1);
 
@@ -200,7 +200,7 @@ void ExpressionGenerator::emitTerm(PascalParser::TermContext *ctx)
     for (int i = 1; i < count; i++)
     {
         string op = toLowerCase(ctx->mulOp()[i-1]->getText());
-        PascalParser::FactorContext *factorCtx2 = ctx->factor()[i];
+        Spongebob_SquarepantsParser::FactorContext *factorCtx2 = ctx->factor()[i];
         Typespec *type2 = factorCtx2->type;
 
         bool integerMode = false;
@@ -243,155 +243,38 @@ void ExpressionGenerator::emitTerm(PascalParser::TermContext *ctx)
     }
 }
 
-void ExpressionGenerator::emitNotFactor(PascalParser::NotFactorContext *ctx)
+void ExpressionGenerator::emitNotFactor(Spongebob_SquarepantsParser::NotFactorContext *ctx)
 {
     compiler->visit(ctx->factor());
     emit(ICONST_1);
     emit(IXOR);
 }
 
-void ExpressionGenerator::emitLoadValue(PascalParser::VariableContext *varCtx)
+void ExpressionGenerator::emitLoadValue(Spongebob_SquarepantsParser::VariableContext *varCtx)
 {
     // Load the scalar value or structure address.
     Typespec *variableType = emitLoadVariable(varCtx);
-
-    // Load an array element's or record field's value.
-    int modifierCount = varCtx->modifier().size();
-    if (modifierCount > 0)
-    {
-        PascalParser::ModifierContext *lastModCtx =
-                                        varCtx->modifier()[modifierCount - 1];
-
-        if (lastModCtx->indexList() != nullptr)
-        {
-            emitLoadArrayElementValue(variableType);
-        }
-        else
-        {
-            emitLoadRecordFieldValue(lastModCtx->field(), variableType);
-        }
-    }
 }
 
 Typespec *ExpressionGenerator::emitLoadVariable(
-                                        PascalParser::VariableContext *varCtx)
+		Spongebob_SquarepantsParser::VariableContext *varCtx)
 {
     SymtabEntry *variableId = varCtx->entry;
     Typespec *variableType = variableId->getType();
-    int modifierCount = varCtx->modifier().size();
 
     // Scalar value or structure address.
     CodeGenerator::emitLoadValue(variableId);  // why need CodeGenerator::?
 
-    // Loop over subscript and field modifiers.
-    for (int i = 0; i < modifierCount; ++i)
-    {
-        PascalParser::ModifierContext *modCtx = varCtx->modifier()[i];
-        bool lastModifier = i == modifierCount - 1;
-
-        // Subscript
-        if (modCtx->indexList() != nullptr)
-        {
-            variableType = emitLoadArrayElementAccess(
-                            modCtx->indexList(), variableType, lastModifier);
-        }
-
-        // Field
-        else if (!lastModifier)
-        {
-            variableType = emitLoadRecordField(modCtx->field(), variableType);
-        }
-    }
-
     return variableType;
 }
 
-Typespec *ExpressionGenerator::emitLoadArrayElementAccess(
-                                PascalParser::IndexListContext *indexListCtx,
-                                Typespec *elmtType, bool lastModifier)
-{
-    int indexCount = indexListCtx->index().size();
-
-    // Loop over the subscripts.
-    for (int i = 0; i < indexCount; i++)
-    {
-        PascalParser::IndexContext *indexCtx = indexListCtx->index()[i];
-        emitExpression(indexCtx->expression());
-
-        Typespec *indexType = elmtType->getArrayIndexType();
-
-        if (indexType->getForm() == SUBRANGE)
-        {
-            int min = indexType->getSubrangeMinValue();
-            if (min != 0)
-            {
-                emitLoadConstant(min);
-                emit(ISUB);
-            }
-        }
-
-        if (!lastModifier || (i < indexCount - 1)) emit(AALOAD);
-        elmtType = elmtType->getArrayElementType();
-    }
-
-    return elmtType;
-}
-
-void ExpressionGenerator::emitLoadArrayElementValue(Typespec *elmtType)
-{
-    Form form = SCALAR;
-
-    if (elmtType != nullptr)
-    {
-        elmtType = elmtType->baseType();
-        form = elmtType->getForm();
-    }
-
-    // Load a character from a string.
-    if (elmtType == Predefined::charType)
-    {
-        emit(INVOKEVIRTUAL, "java/lang/StringBuilder.charAt(I)C");
-    }
-
-    // Load an array element.
-    else
-    {
-        emit(  elmtType == Predefined::integerType ? IALOAD
-             : elmtType == Predefined::realType    ? FALOAD
-             : elmtType == Predefined::booleanType ? BALOAD
-             : elmtType == Predefined::charType    ? CALOAD
-             : form == ENUMERATION                 ? IALOAD
-             :                                       AALOAD);
-    }
-}
-
-void ExpressionGenerator::emitLoadRecordFieldValue(
-                    PascalParser::FieldContext *fieldCtx, Typespec *recordType)
-{
-    emitLoadRecordField(fieldCtx, recordType);
-}
-
-Typespec *ExpressionGenerator::emitLoadRecordField(
-                    PascalParser::FieldContext *fieldCtx, Typespec *recordType)
-{
-    SymtabEntry *fieldId = fieldCtx->entry;
-    string fieldName = fieldId->getName();
-    Typespec *fieldType = fieldCtx->type;
-
-    string recordTypePath = recordType->getRecordTypePath();
-    string fieldPath = recordTypePath + "/" + fieldName;
-    emit(GETFIELD, fieldPath, typeDescriptor(fieldType));
-
-    return fieldType;
-}
-
-void ExpressionGenerator::emitLoadIntegerConstant(PascalParser::NumberContext *intCtx)
+void ExpressionGenerator::emitLoadIntegerConstant(Spongebob_SquarepantsParser::NumberContext *intCtx)
 {
     int value = stoi(intCtx->getText());
     emitLoadConstant(value);
 }
 
-void ExpressionGenerator::emitLoadRealConstant(PascalParser::NumberContext *realCtx)
+void ExpressionGenerator::emitLoadRealConstant(Spongebob_SquarepantsParser::NumberContext *realCtx)
 {
     float value = stof(realCtx->getText());
     emitLoadConstant(value);
